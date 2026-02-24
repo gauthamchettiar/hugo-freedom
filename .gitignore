@@ -1,0 +1,9 @@
+# generated site files
+public/
+resources/
+**/.hugo_build.lock
+
+# repository files
+.jj/
+.git/
+

@@ -1,0 +1,22 @@
+baseURL: "https://hugo-freedom.gauthamchettiar.com/"
+languageCode: "en-US"
+title: "freedom"
+theme: "hugo-freedom"
+themesDir: ../../
+
+menus:
+  main:
+    - name: "Home"
+      pageRef: "/"
+      weight: 10
+    - name: "Posts"
+      pageRef: "/posts"
+      weight: 20
+    - name: "Tags"
+      pageRef: "/tags"
+      weight: 30
+
+module:
+  hugoVersion:
+    extended: false
+    min: "0.146.0"
