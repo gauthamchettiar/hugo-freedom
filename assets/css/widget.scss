@@ -1,0 +1,54 @@
+// Widget Styles
+
+// Title Widget
+.fs-wdgt-title--main {
+  a {
+    color: var(--color-text);
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.fr-wdgt-page-title {
+  margin-bottom: var(--spacing-xs);
+}
+
+// Terms Widget
+.fr-wdgt-terms--page,
+.fr-wdgt-terms--taxonomy,
+.fr-wdgt-terms--term {
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.fr-wdgt-terms--term {
+  .active a {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+}
+
+// Simple List Widget Styles
+.fr-wdgt-list-simple {
+  padding: 0;
+
+  li {
+    list-style: none;
+    display: flex;
+    gap: var(--spacing-sm);
+
+    time,
+    span {
+      color: var(--color-text-muted);
+    }
+  }
+}
+
+// Meta Widget Styles
+.fr-wdgt-meta-author,
+.fr-wdgt-meta-date,
+.fr-wdgt-meta-read-time {
+  display: inline-block;
+}

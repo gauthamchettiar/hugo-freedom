@@ -1,0 +1,12 @@
+{{ $content := .content }}
+{{ $class := .class | default "fr-definition-list" }}
+
+{{ $dtPattern := `<dt>([^<]+)</dt>` }}
+{{ range findRE $dtPattern $content }}
+  {{ $termText := replaceRE `<dt>([^<]+)</dt>` `$1` . }}
+  {{ $termId := $termText | plainify | urlize }}
+  {{ $newDt := printf `<dt id="%s" class="%s">%s<a href="#%s" aria-label="Link to %s">#</a></dt>` $termId $class $termText $termId $termText }}
+  {{ $content = replace $content . $newDt 1 }}
+{{ end }}
+
+{{ $content | safeHTML }}

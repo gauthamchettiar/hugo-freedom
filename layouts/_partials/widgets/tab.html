@@ -1,0 +1,13 @@
+{{- $title := .Get "title" | default "Tab" -}}
+{{- $class := .Get "class" | default "fr-wdgt-tab" -}}
+{{- $group := .Parent.Scratch.Get "tabGroup" -}}
+{{- $id := printf "%s-%s-%d-%d" $class $group .Parent.Ordinal .Ordinal -}}
+{{- $checked := "" -}}
+{{- if eq .Ordinal 0 }}{{ $checked = "checked" }}{{ end -}}
+
+<input type="radio" name="{{ $group }}-{{ .Parent.Ordinal }}" id="{{ $id }}" class="{{ $class }}-input"
+    data-group="{{ $group }}" data-title="{{ $title }}" {{ $checked }}>
+<label for="{{ $id }}" class="{{ $class }}-label">{{ $title }}</label>
+<div class="{{ $class }}-panel">
+    {{ .Inner | markdownify }}
+</div>

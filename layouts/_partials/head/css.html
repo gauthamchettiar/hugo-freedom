@@ -1,4 +1,29 @@
-{{- with resources.Get "css/main.css" }}
+{{- $chromaLightResource := resources.FromString 
+          "css/chroma-light-wrapped.css" 
+          (printf "@media (prefers-color-scheme: light) {\n%s\n}" (resources.Get "css/chroma/light.css").Content) -}}
+{{- $chromaDarkResource := resources.FromString 
+          "css/chroma-dark-wrapped.css" 
+          (printf "@media (prefers-color-scheme: dark) {\n%s\n}" (resources.Get "css/chroma/dark.css").Content) -}}
+
+{{/*  If you don't combine scss, hugo will process each file individually  */}}
+{{- $scssResources := slice
+      (resources.Get "css/theme.scss")
+      (resources.Get "css/_tokens.scss")
+      (resources.Get "css/main.scss")
+      (resources.Get "css/widget.scss")
+      (resources.Get "css/overrides.scss")
+    | resources.Concat "css/combined.scss" -}}
+
+{{- /* start with pre-compiled and generated resources */ -}}
+{{- $resourceFiles := slice 
+  $chromaLightResource 
+  $chromaDarkResource 
+  ($scssResources | css.Sass) 
+-}}
+
+{{- $cssBundle := $resourceFiles | resources.Concat "css/bundle.css" -}}
+
+{{- with $cssBundle }}
   {{- if hugo.IsDevelopment }}
     <link rel="stylesheet" href="{{ .RelPermalink }}">
   {{- else }}

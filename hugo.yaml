@@ -1,20 +1,22 @@
-baseURL: "https://example.org/"
-languageCode: "en-US"
-title: "My New Hugo Site"
-
-menus:
-  main:
-    - name: "Home"
-      pageRef: "/"
-      weight: 10
-    - name: "Posts"
-      pageRef: "/posts"
-      weight: 20
-    - name: "Tags"
-      pageRef: "/tags"
-      weight: 30
-
 module:
   hugoVersion:
     extended: false
     min: "0.146.0"
+
+markup:
+  goldmark:
+    extensions:
+      strikethrough: false
+      extras:
+        delete: 
+          enable: true
+        insert: 
+          enable: true
+        mark: 
+          enable: true
+        subscript: 
+          enable: true
+        superscript: 
+          enable: true
+  highlight:
+    noClasses: false

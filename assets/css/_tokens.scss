@@ -1,0 +1,20 @@
+// SCSS Variables
+$border-accent-thin: var(--border-thin) solid var(--color-accent);
+$border-muted-thin: var(--border-thin) solid var(--color-text-muted);
+
+$border-accent-thick: var(--border-thick) solid var(--color-accent);
+$border-muted-thick: var(--border-thick) solid var(--color-text-muted);
+
+// SCSS Functions
+// Mix $color with --color-accent; $pct is the % of accent applied
+@function mix-accent($color, $pct) {
+  @return unquote("color-mix(in srgb, #{$color} #{100 - $pct}%, var(--color-accent) #{$pct}%)");
+}
+// Mix $color with --color-bg; $pct is the % of bg applied
+@function mix-bg($color, $pct) {
+  @return unquote("color-mix(in srgb, #{$color} #{100 - $pct}%, var(--color-bg) #{$pct}%)");
+}
+// Mix $color with --color-text; $pct is the % of text applied
+@function mix-text($color, $pct) {
+  @return unquote("color-mix(in srgb, #{$color} #{100 - $pct}%, var(--color-text) #{$pct}%)");
+}

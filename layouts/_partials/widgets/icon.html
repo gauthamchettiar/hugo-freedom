@@ -1,0 +1,6 @@
+{{ $class := .class | default "fr-wdgt-icon" }}
+{{ $style := .style | default "solid" }}
+{{ $name := .name | default "question" }}
+{{ $ariaLabel := .ariaLabel | default $name }}
+
+<i class="fa-classic fa-{{ $style }} fa-{{ $name }} {{ $class }}" aria-label="{{ $ariaLabel }}"></i>

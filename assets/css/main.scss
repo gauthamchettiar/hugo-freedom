@@ -1,0 +1,256 @@
+@use 'tokens' as *;
+
+// Reset CSS
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  // Custom Scrollbar Styles
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent) var(--color-surface);
+}
+
+// Layout Styles
+header {
+  margin: var(--spacing-lg) 0;
+}
+
+footer {
+  margin: var(--spacing-lg) 0;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-family-body);
+  line-height: var(--line-height-regular);
+  padding: 0 var(--spacing-md);
+  max-width: var(--page-width);
+  margin: 0 auto;
+}
+
+// Heading Styles
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+  line-height: var(--line-height-compact);
+  margin-bottom: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+}
+
+:is(h1,h2,h3,h4,h5,h6) + :is(h1,h2,h3,h4,h5,h6) {
+  margin-top: var(--spacing-sm);
+}
+
+h1 {
+  font-size: var(--font-size-4xl);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+h2 {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  color: mix-accent(var(--color-text), 10);
+}
+
+h3 {
+  font-size: var(--font-size-2xl);
+  font-weight: 600;
+  color: mix-accent(var(--color-text), 15);
+}
+
+h4 {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: mix-accent(var(--color-text), 25);
+}
+
+h5 {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: mix-accent(var(--color-text), 30);
+}
+
+h6 {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  color: mix-accent(var(--color-text), 40);
+}
+
+// Paragraph Styles
+p {
+  margin: var(--spacing-md) 0;
+}
+
+// Link Styles
+a {
+  color: var(--color-link);
+  text-decoration: none;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+
+  &:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+}
+
+// Navigation Styles
+nav {
+  ul {
+    display: flex;
+    gap: var(--spacing-md);
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+  }
+}
+
+// Blockquote Styles
+blockquote {
+  border-left: $border-accent-thick;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  margin: var(--spacing-md) 0;
+  font-style: italic;
+  background-color: var(--color-surface);
+}
+
+// Table Styles
+/* allow horizontal scrolling if a table is wider than its container */
+table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin: var(--spacing-md) 0;
+
+  th, td {
+    border: $border-muted-thin;
+    padding: var(--spacing-xs);
+  }
+
+  th {
+    background-color: var(--color-surface);
+    font-weight: 600;
+  }
+}
+
+// Other Text Formatting Styles
+mark {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  padding: var(--spacing-2xs) var(--spacing-2xs);
+}
+
+// Code Block Styles
+code {
+  font-family: var(--font-family-code);
+
+  &:not(pre code) {
+    padding: var(--spacing-2xs);
+  }
+}
+
+pre {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-text-muted) color-mix(in srgb, var(--color-text-muted) 10%, transparent);
+
+  overflow-x: auto;
+  white-space: pre; 
+  padding: var(--spacing-md);
+}
+
+// List Styles
+ul, ol {
+  padding-left: var(--spacing-lg);
+}
+
+
+// Checkbox List Styles
+ul:has(.fr-checkbox) {
+  list-style: none;
+  padding-left: var(--spacing-md);
+}
+
+.fr-checkbox {
+  accent-color: var(--color-accent);
+}
+
+
+// Definition List Styles
+dl {
+  margin: var(--spacing-sm) 0;
+}
+
+dt {
+  font-weight: 600;
+  margin-top: var(--spacing-sm);
+}
+
+dd {
+  margin-left: var(--spacing-lg);
+}
+
+// Horizontal Rule Styles
+hr {
+  border: $border-accent-thin;
+  margin: var(--spacing-lg) 0;
+}
+
+// Image Styles
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+figcaption {
+  color: var(--color-text-muted);
+  line-height: var(--line-height-compact);
+  padding: var(--spacing-2xs) 0;
+}
+
+// Custom Text Selection Highlight
+::selection {
+  background-color: var(--color-surface);
+}
+
+// Special Class Overrides
+.fr-page-meta {
+  color: var(--color-text-muted);
+}
+
+.footnotes {
+  border-top: $border-accent-thin;
+  border-bottom: $border-accent-thin;
+  margin: var(--spacing-lg) 0;
+
+  hr {
+    display: none;
+  }
+}
+
+.fr-definition-list a{
+  color: var(--color-text-muted);
+  margin-left: var(--spacing-xs);
+
+  &:hover {
+    color: var(--color-accent);
+  }
+}
+
+// Dark Mode / Light Mode Specific Elements
+.fr-hide-in-light {
+  @media (prefers-color-scheme: light) {
+    display: none;
+  }
+}
+
+.fr-hide-in-dark {
+  @media (prefers-color-scheme: dark) {
+    display: none;
+  }
+}

@@ -1,0 +1,19 @@
+{{ $page := . }}
+{{ $class := .class | default "fr-wdgt-list-simple" }}
+
+
+<ul class="{{ $class }}">
+  {{ range $page.Pages }}
+    
+    {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+    {{ $dateHuman := .Date | time.Format "02 Jan 2006" }}
+
+    <section>
+        <li>
+            <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time> 
+            <span> ›› </span>
+            <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+        </li>
+    </section>
+  {{ end }}
+</ul>

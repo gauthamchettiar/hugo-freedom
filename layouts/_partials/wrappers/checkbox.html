@@ -1,0 +1,8 @@
+{{ $content := .content }}
+{{ $class := .class | default "fr-checkbox" }}
+
+{{/* Fix checkbox inputs */}}
+{{ $content = replace $content `<input disabled="" type="checkbox"` (printf `<input type="checkbox" class="%s"` $class) }}
+{{ $content = replace $content `<input checked="" disabled="" type="checkbox"` (printf `<input checked type="checkbox" class="%s"` $class) }}
+
+{{ return $content }}

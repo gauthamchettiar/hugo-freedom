@@ -7,3 +7,5 @@ resources/
 .jj/
 .git/
 
+# IDE and editor files
+.vscode/*

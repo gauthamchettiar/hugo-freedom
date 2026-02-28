@@ -1,0 +1,18 @@
+
+{{- $page := .page -}}
+{{- $class :=  printf "fr-wdgt-title %s" (.class | default "") -}}
+{{- $linktitle := .linktitle | default false -}}
+
+{{- if $page -}} 
+    {{- if $linktitle -}}
+        <h1 class="{{ $class }}"><a href="{{ $page.RelPermalink }}">{{ $page.LinkTitle }}</a></h1>
+    {{- else -}}
+        <h1 class="{{ $class }}">{{ $page.Title }}</h1>
+    {{- end -}}
+{{- else -}}
+    {{- if $linktitle -}}
+        <h1 class="{{ $class }}"><a href="{{ site.BaseURL }}">{{ site.Title }}</a></h2>
+    {{- else -}}
+        <h1 class="{{ $class }}">{{ site.Title }}</h2>
+    {{- end -}}    
+{{- end -}}

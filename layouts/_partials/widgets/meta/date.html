@@ -1,0 +1,12 @@
+{{ $page := .page }}
+{{ $class := .class | default "fr-wdgt-meta-date" }}
+
+{{ $dateMachine := $page.Date | time.Format "2006-01-02T15:04:05-07:00" }}
+{{ $dateHuman := $page.Date | time.Format "02 Jan 2006" }}
+
+<span class="{{ $class }}">
+  {{ partial "widgets/icon.html" (dict "name" "calendar" "style" "solid") }}
+  <span>
+    <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+  </span>
+</span>

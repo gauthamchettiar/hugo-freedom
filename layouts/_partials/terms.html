@@ -1,23 +1,18 @@
-{{- /*
-For a given taxonomy, renders a list of terms assigned to the page.
 
-@context {page} page The current page.
-@context {string} taxonomy The taxonomy.
+{{ $page := .page }}
+{{ $class := .class | default "fr-wdgt-terms" }}
+{{ $taxonomies := .taxonomies }}
+{{ $prefix := .prefix | default "" }}
 
-@example: {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
-*/}}
+{{/*  {{ debug.Dump (dict "page" $page "class" $class "taxonomies" $taxonomies "prefix" $prefix) }}  */}}
 
-{{- $page := .page }}
-{{- $taxonomy := .taxonomy }}
-
-{{- with $page.GetTerms $taxonomy }}
-  {{- $label := (index . 0).Parent.LinkTitle }}
-  <div>
-    <div>{{ $label }}:</div>
+{{ with $taxonomies }}
+  <nav class="{{ $class }}">
     <ul>
-      {{- range . }}
-        <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
-      {{- end }}
+      {{ range . }}
+        {{ $activeTaxonomy := eq $page.RelPermalink .RelPermalink }}
+        <li {{ if $activeTaxonomy }}class="active"{{ end }}><a href="{{ .RelPermalink }}">{{ $prefix }}{{ lower .LinkTitle }}</a></li>
+      {{ end }}
     </ul>
-  </div>
-{{- end }}
+  </nav>
+{{ end }}

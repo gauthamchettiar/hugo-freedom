@@ -1,2 +1,2 @@
-<h1>{{ site.Title }}</h1>
+{{- partial "widgets/title.html" (dict "class" "fs-wdgt-title--main" "linktitle" true) -}}
 {{ partial "menu.html" (dict "menuID" "main" "page" .) }}

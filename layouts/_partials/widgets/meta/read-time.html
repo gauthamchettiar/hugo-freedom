@@ -1,0 +1,11 @@
+{{ $page := .page }}
+{{ $class := .class | default "fr-wdgt-meta-read-time" }}
+
+{{ $minutes := $page.ReadingTime }}
+{{ $words := $page.WordCount }}
+{{ $minsLabel := cond (eq $minutes 1) (i18n "minute") (i18n "minutes") }}
+
+<span class="{{ $class }}">
+  {{ partial "widgets/icon.html" (dict "name" "clock" "style" "solid") }}
+  <span class="{{ $class }}--text">{{ i18n "estimated" }} {{ $minutes }} {{ $minsLabel }} ( {{ $words }} {{ i18n "words" }} )</span>
+</span>

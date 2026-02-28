@@ -1,10 +1,12 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
+  {{ partial "widgets/title.html" (dict "page" . "class" "fr-wdgt-page-title" "linktitle" false) }}
+  <div class="fr-page-meta">
+    {{ partial "widgets/meta/date.html" (dict "page" .) }} ┊ 
+    {{ partial "widgets/meta/author.html" (dict "page" .) }} ┊ 
+    {{ partial "widgets/meta/read-time.html" (dict "page" .) }}
+  </div>
 
-  {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-  {{ $dateHuman := .Date | time.Format ":date_long" }}
-  <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+  {{ partial "content.html" (dict "page" .) }}
 
-  {{ .Content }}
-  {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+  {{ partial "terms.html" (dict "page" . "taxonomies" (.GetTerms "tags") "prefix" (index (partial "stores/taxonomy-prefix-store.html") "tags")  "class" "fr-wdgt-terms--page") }}
 {{ end }}
