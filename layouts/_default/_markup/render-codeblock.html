@@ -1,0 +1,12 @@
+{{- partial "widgets/alt/codeblock.html" (dict
+  "page"       .Page
+  "lang"       .Type
+  "inner"      .Inner
+  "options"    .Options
+  "class"     (.Attributes.class | default "")
+  "caption"   (.Attributes.caption | default "")
+  "captionalign" (.Attributes.captionalign | default "left")
+  "showtitle" (.Attributes.showtitle | default true)
+  "showcopy"  (.Attributes.showcopy | default true)
+  "title"     (.Attributes.title | default .Type)
+) -}}

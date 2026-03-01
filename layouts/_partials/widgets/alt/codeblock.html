@@ -1,0 +1,33 @@
+{{- $page := .page -}}
+{{- $class := .class | default "fr-codeblock" -}}
+{{- $lang := .lang -}}
+{{- $inner := .inner -}}
+{{- $options := .options -}}
+{{- $caption := .caption | default "" -}}
+{{- $captionalign := .captionalign | default "left" -}}
+{{- $showtitle := .showtitle | default true -}}
+{{- $showcopy := .showcopy | default true -}}
+{{- $title := .title | default $lang -}}
+
+{{- if $lang -}}
+    <figure class="{{- $class -}}-lang">
+        {{ if or $showtitle $showcopy }}
+            <div class="{{- $class -}}-header chroma">
+                <span class="{{- $class -}}-title {{ if not $showtitle -}} {{- $class -}}-title-hidden {{- end -}}">{{- if $showtitle -}}{{- $title -}}{{- end -}}</span>
+                {{- if $showcopy -}}
+                    <span class="{{- $class -}}-copy-button" role="button" tabindex="0" data-code="{{- $inner | htmlEscape -}}">
+                        {{- partial "widgets/icon.html" (dict "name" "copy" "style" "regular") -}}
+                    </span>
+                {{- end -}}
+            </div>
+        {{ end -}}
+        <div class="{{- $class -}}-content">
+            {{- highlight $inner $lang $options -}}
+        </div>
+        {{ if $caption }}
+            <figcaption class="{{- $class -}}-caption fr-caption-{{- $captionalign -}}">{{- $caption -}}</figcaption>
+        {{ end -}}
+    </figure>
+{{- else -}}
+    <pre class="{{ $class }}-plain"><code>{{- $inner -}}</code></pre>
+{{- end -}}

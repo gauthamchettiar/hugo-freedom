@@ -119,8 +119,16 @@ blockquote {
   background-color: var(--color-surface);
 }
 
+// Inline Code Styles
+code {
+  font-family: var(--font-family-code);
+
+  &:not(pre code) {
+    padding: var(--spacing-2xs);
+  }
+}
+
 // Table Styles
-/* allow horizontal scrolling if a table is wider than its container */
 table {
   display: block;
   width: 100%;
@@ -144,24 +152,6 @@ mark {
   background-color: var(--color-accent);
   color: var(--color-bg);
   padding: var(--spacing-2xs) var(--spacing-2xs);
-}
-
-// Code Block Styles
-code {
-  font-family: var(--font-family-code);
-
-  &:not(pre code) {
-    padding: var(--spacing-2xs);
-  }
-}
-
-pre {
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-text-muted) color-mix(in srgb, var(--color-text-muted) 10%, transparent);
-
-  overflow-x: auto;
-  white-space: pre; 
-  padding: var(--spacing-md);
 }
 
 // List Styles
