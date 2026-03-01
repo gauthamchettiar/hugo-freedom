@@ -18,5 +18,9 @@ markup:
           enable: true
         superscript: 
           enable: true
+    parser:
+      attribute:
+        block: true
+      wrapStandAloneImageWithinParagraph: false
   highlight:
     noClasses: false

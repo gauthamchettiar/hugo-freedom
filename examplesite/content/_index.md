@@ -1,6 +1,6 @@
 ---
 title: 'Home'
-date: 2026-02-24T10:14:00+00:00
+date: 2026-02-24
 draft: false
 ---
 

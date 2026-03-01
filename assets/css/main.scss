@@ -51,31 +51,31 @@ h1 {
 h2 {
   font-size: var(--font-size-3xl);
   font-weight: 700;
-  color: mix-accent(var(--color-text), 10);
+  color: mix-color-accent(var(--color-text), 10);
 }
 
 h3 {
   font-size: var(--font-size-2xl);
   font-weight: 600;
-  color: mix-accent(var(--color-text), 15);
+  color: mix-color-accent(var(--color-text), 15);
 }
 
 h4 {
   font-size: var(--font-size-xl);
   font-weight: 600;
-  color: mix-accent(var(--color-text), 25);
+  color: mix-color-accent(var(--color-text), 25);
 }
 
 h5 {
   font-size: var(--font-size-lg);
   font-weight: 600;
-  color: mix-accent(var(--color-text), 30);
+  color: mix-color-accent(var(--color-text), 30);
 }
 
 h6 {
   font-size: var(--font-size-md);
   font-weight: 600;
-  color: mix-accent(var(--color-text), 40);
+  color: mix-color-accent(var(--color-text), 40);
 }
 
 // Paragraph Styles
@@ -167,6 +167,7 @@ pre {
 // List Styles
 ul, ol {
   padding-left: var(--spacing-lg);
+  margin: var(--spacing-md) 0;
 }
 
 
@@ -199,18 +200,6 @@ dd {
 hr {
   border: $border-accent-thin;
   margin: var(--spacing-lg) 0;
-}
-
-// Image Styles
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-figcaption {
-  color: var(--color-text-muted);
-  line-height: var(--line-height-compact);
-  padding: var(--spacing-2xs) 0;
 }
 
 // Custom Text Selection Highlight

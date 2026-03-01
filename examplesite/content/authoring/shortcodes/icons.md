@@ -1,12 +1,14 @@
 ---
-title: Icons
+title: "Shortcode: Icons"
 slug: "icons"
-date: 2025-10-29
+date: 2026-02-28
 tags: ["shortcodes"]
 ---
 Add inline SVG icons using `{{</* icon */>}}` shortcode. 
 
 <!--more-->
+
+> This is shortcode implementation of icons, if you are looking for the partial version, check [Partial: Icons](/templating/partials/icons/) documentation.
 
 ## Features
 - Adds Inline Font Awesome SVGs.
@@ -29,11 +31,8 @@ ariaLabel
 >   - [Regular](https://fontawesome.com/search?ip=classic&s=regular&ic=free-collection)
 >   - [Solid](https://fontawesome.com/search?ip=classic&s=solid&ic=free-collection)
 >   - [Brands](https://fontawesome.com/search?ip=brands&ic=free-collection)
->
 
 ## Syntax
-**Shortcode** (to be used in markdown content):
-
 ```markdown
 {{</* icon 
     name="github" 
@@ -43,18 +42,6 @@ ariaLabel
 */>}}
 ```
 
-**Partial** (to be used in html templates):
-
-```go-html-template
-{{ 
-    partial "widgets/icon.html" (dict 
-        "name" "github" 
-        "style" "brands" 
-        "class" "my-icon" 
-        "ariaLabel" "GitHub profile"
-    )
-}}
-```
 
 
 ## Examples

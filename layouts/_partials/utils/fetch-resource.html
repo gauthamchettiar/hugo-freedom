@@ -1,0 +1,18 @@
+{{ $page := .page | default . }}
+{{ $src := .src | default . }}
+
+{{- $resource := false -}}
+{{- if hasPrefix $src "http" -}}
+  {{- $resource = resources.GetRemote $src -}}
+{{- else -}}
+  {{- $resource = $page.Resources.Get $src -}}
+  {{- if not $resource -}}
+    {{- $resource = resources.Get $src -}}
+  {{- end -}}
+{{- end -}}
+
+{{ if not $resource }}
+    {{- warnf "Image '%s' not found in page, site or remote resource location. Using original path." $src -}}
+{{ end -}}
+
+{{ return $resource }}

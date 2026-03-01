@@ -1,0 +1,32 @@
+{{ $page := .page }}
+{{ $class := .class | default "fr-image" }}
+{{ $src := .src }}
+{{ $alt := .alt | default "" }}
+{{ $caption := .caption | default "" }}
+{{ $width := .width | default "" }}
+{{ $height := .height | default "" }}
+{{ $captionalign := .captionalign | default "left" }}
+{{ $variation := .variation | default "" }}
+{{ $hideindark := .hideindark | default false }}
+{{ $hideinlight := .hideinlight | default false }}
+{{ $process := .process | default "" }}
+
+{{ if and (not $process) (or $width $height) }}
+  {{ $process = printf "resize %sx%s" $width $height }}
+{{ end }}
+
+{{ $image := partial "utils/fetch-resource.html" (dict "page" $page "src" $src ) }}
+
+{{ with $image }}
+  {{ if $process }}
+    {{ $image = $image.Process $process }}
+  {{ end }}
+
+  <figure class="{{ $class }} {{- if $hideindark }} fr-hide-in-dark {{- end -}} {{- if $hideinlight }} fr-hide-in-light {{- end -}} {{- if $variation }} fr-variant fr-variation-{{ $variation }} {{- end }}">
+    <img src="{{ $image.Permalink }}" alt="{{ $alt }}" aria-label="{{ $alt }}" title="{{ $alt }}" loading="lazy">
+    {{ with $caption }}
+      <figcaption class="fr-text-align-{{ $captionalign }} {{- if $variation }} fr-variation-{{ $variation }} {{- end }}">{{ . }}</figcaption>
+    {{ end }}
+  </figure>
+
+{{ end }}

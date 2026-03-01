@@ -11,12 +11,15 @@ menus:
     - name: Guide
       pageRef: /guide
       weight: 10
-    - name: Shortcodes
-      pageRef: /shortcodes
+    - name: Authoring
+      pageRef: /authoring
       weight: 20
+    - name: Templating
+      pageRef: /templating
+      weight: 30
     - name: Tags
       pageRef: /tags
-      weight: 30
+      weight: 40
 
 module:
   hugoVersion:

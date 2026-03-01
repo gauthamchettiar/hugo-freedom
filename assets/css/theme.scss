@@ -45,6 +45,31 @@
     --spacing-4xl: 8rem;
 
     --page-width: 768px;
+
+    /* Style Variations */
+    --color-surface-info: #0057b8;
+    --color-surface-note: #ffc107;
+    --color-surface-tip: #00bcd4;
+    --color-surface-warning: #ff9900;
+    --color-surface-important: #6200ea;
+    --color-surface-caution: #ff5500;
+    --color-surface-accent: var(--color-accent);
+
+    --color-text-info: #fff;
+    --color-text-note: #000;
+    --color-text-tip: #000;
+    --color-text-warning: #000;
+    --color-text-important: #fff;
+    --color-text-caution: #fff;
+    --color-text-accent: var(--color-bg);
+
+    --color-border-info: color-mix(in srgb, var(--color-surface-info) 50%, #000 25%);
+    --color-border-note: color-mix(in srgb, var(--color-surface-note) 50%, #000 25%);
+    --color-border-tip: color-mix(in srgb, var(--color-surface-tip) 50%, #000 25%);
+    --color-border-warning: color-mix(in srgb, var(--color-surface-warning) 50%, #000 25%);
+    --color-border-important: color-mix(in srgb, var(--color-surface-important) 50%, #000 25%);
+    --color-border-caution: color-mix(in srgb, var(--color-surface-caution) 50%, #000 25%);
+    --color-border-accent: color-mix(in srgb, var(--color-surface-accent) 50%, #000 25%);
 }
 
 /* Dark mode overrides */
@@ -58,5 +83,30 @@
         --color-link: #66aaff;
         --color-accent: #00fff2;
         --color-surface: color-mix(in srgb, var(--color-accent) 20%, transparent);
+        
+        /* Dark Mode: Style Variations */
+        --color-surface-info: #0057b8;
+        --color-surface-note: #ffc107;
+        --color-surface-tip: #00bcd4;
+        --color-surface-warning: #ff9900;
+        --color-surface-important: #6200ea;
+        --color-surface-caution: #ff5500;
+        --color-surface-accent: var(--color-accent);
+
+        --color-text-info: #fff;
+        --color-text-note: #000;
+        --color-text-tip: #000;
+        --color-text-warning: #000;
+        --color-text-important: #fff;
+        --color-text-caution: #fff;
+        --color-text-accent: var(--color-bg);
+
+        --color-border-info: color-mix(in srgb, var(--color-surface-info) 50%, #fff 25%);
+        --color-border-note: color-mix(in srgb, var(--color-surface-note) 50%, #fff 25%);
+        --color-border-tip: color-mix(in srgb, var(--color-surface-tip) 50%, #fff 25%);
+        --color-border-warning: color-mix(in srgb, var(--color-surface-warning) 50%, #fff 25%);
+        --color-border-important: color-mix(in srgb, var(--color-surface-important) 50%, #fff 25%);
+        --color-border-caution: color-mix(in srgb, var(--color-surface-caution) 50%, #fff 25%);
+        --color-border-accent: color-mix(in srgb, var(--color-surface-accent) 50%, #fff 25%);
     }
 }

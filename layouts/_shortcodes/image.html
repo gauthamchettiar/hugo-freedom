@@ -1,0 +1,15 @@
+{{/* shortcode: image src="path" alt="text" caption="..." class="" width="" height="" captionalign="left" variation="" hideindark=false hideinlight=false process="" */}}
+{{ partial "widgets/alt/image.html" ( dict
+    "page" .Page
+    "class" (.Get "class")
+    "src" (.Get "src")
+    "alt" (.Get "alt")
+    "caption" (.Get "caption")
+    "width" (.Get "width")
+    "height" (.Get "height")
+    "captionalign" (.Get "captionalign")
+    "variation" (.Get "variation")
+    "hideindark" (.Get "hideindark")
+    "hideinlight" (.Get "hideinlight")
+    "process" (.Get "process")
+) }}
