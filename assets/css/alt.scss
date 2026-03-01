@@ -18,6 +18,23 @@
     white-space: pre;
 }
 
+// Link Styles
+.fr-link, 
+.fr-wdgt-menu a, 
+.fr-wdgt-list-simple a, 
+.fr-wdgt-terms a {
+  color: var(--color-link);
+  text-decoration: none;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+
+  &:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+}
+
 // Image Styles
 .fr-image {
     img {
@@ -62,7 +79,17 @@
         justify-content: space-between;
         border: $border-thin;
         margin-bottom: calc(-1*var(--border-thin));
-
+        
+        .fr-codeblock-copy-button {
+            &:hover {
+                color: var(--color-accent);
+                cursor: pointer;
+            }
+            &.copied-text-display {
+                color: inherit;
+                cursor: default;
+            }
+        }
     }
 
     .fr-codeblock-content {
@@ -70,17 +97,6 @@
 
         .highlight pre {
             padding: var(--spacing-sm) var(--spacing-md);
-        }
-    }
-
-    .fr-codeblock-copy-button {
-        &:hover {
-            color: var(--color-accent);
-            cursor: pointer;
-        }
-        &.copied-text-display {
-            color: inherit;
-            cursor: default;
         }
     }
 }

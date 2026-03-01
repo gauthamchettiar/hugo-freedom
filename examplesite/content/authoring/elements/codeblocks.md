@@ -435,20 +435,20 @@ Use shortcodes `{{</* tabs */>}}` and `{{</* tab */>}}` to create multi-language
 
 ````
 {{</* tabs group="multi-lang-example" */>}}
-{{</* tab title="Python" */>}}
+{{%/* tab title="Python" */%}}
 ```python {showtitle=false}
 def greet(name):
     print(f"Hello, {name}!")
 ```
-{{</* /tab */>}}
-{{</* tab title="JavaScript" */>}}
+{{%/* /tab */%}}
+{{%/* tab title="JavaScript" */%}}
 ```javascript {showtitle=false}
 function greet(name) {
     console.log(`Hello, ${name}!`);
 }
 ```
-{{</* /tab */>}}
-{{</* tab title="Go" */>}}
+{{%/* /tab */%}}
+{{%/* tab title="Go" */%}}
 ```go {showtitle=false}
 package main
 import "fmt"
@@ -456,7 +456,7 @@ func greet(name string) {
     fmt.Printf("Hello, %s!\n", name)
 }
 ```
-{{</* /tab */>}}
+{{%/* /tab */%}}
 {{</* /tabs */>}}
 ````
 

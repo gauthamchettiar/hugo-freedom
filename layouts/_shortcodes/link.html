@@ -1,0 +1,6 @@
+{{ partial "widgets/alt/link.html" (dict 
+    "url" (.Get "url")
+    "title" (.Get "title")
+    "text" (.Get "text")
+    "class" ((.Get "class") | default "")
+) }}

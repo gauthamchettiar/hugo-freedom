@@ -1,4 +1,4 @@
 {{ define "main" }}
   {{ partial "content.html" (dict "page" .) }}
-  {{ partial "terms.html" (dict "page" . "taxonomies" .Pages "prefix" (index (partial "stores/taxonomy-prefix-store.html") .Section ) "class" "fr-wdgt-terms--taxonomy") }}
+  {{ partial "terms.html" (dict "page" . "taxonomies" .Pages "prefix" (index (partial "stores/taxonomy-prefix-store.html") .Section ) "class" "fr-wdgt-terms fr-wdgt-terms--taxonomy") }}
 {{ end }}

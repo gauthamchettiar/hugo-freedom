@@ -4,10 +4,7 @@
 .fs-wdgt-title--main {
   a {
     color: var(--color-text);
-
-    &:hover {
-      text-decoration: none;
-    }
+    text-decoration: none;
   }
 }
 
@@ -15,10 +12,22 @@
   margin-bottom: var(--spacing-xs);
 }
 
+// Menu Widget
+.fr-wdgt-menu,
+.fr-wdgt-terms {
+  ul {
+    display: flex;
+    gap: var(--spacing-md);
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+  }
+}
+
 // Terms Widget
-.fr-wdgt-terms--page,
-.fr-wdgt-terms--taxonomy,
-.fr-wdgt-terms--term {
+.fr-wdgt-terms {
   margin-top: var(--spacing-md);
   margin-bottom: var(--spacing-lg);
 }

@@ -8,5 +8,5 @@
 
   {{ partial "content.html" (dict "page" .) }}
 
-  {{ partial "terms.html" (dict "page" . "taxonomies" (.GetTerms "tags") "prefix" (index (partial "stores/taxonomy-prefix-store.html") "tags")  "class" "fr-wdgt-terms--page") }}
+  {{ partial "terms.html" (dict "page" . "taxonomies" (.GetTerms "tags") "prefix" (index (partial "stores/taxonomy-prefix-store.html") "tags")  "class" "fr-wdgt-terms fr-wdgt-terms--page") }}
 {{ end }}

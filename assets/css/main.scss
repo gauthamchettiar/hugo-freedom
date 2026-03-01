@@ -83,33 +83,6 @@ p {
   margin: var(--spacing-md) 0;
 }
 
-// Link Styles
-a {
-  color: var(--color-link);
-  text-decoration: none;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  word-break: break-word;
-
-  &:hover {
-    color: var(--color-accent);
-    text-decoration: underline;
-  }
-}
-
-// Navigation Styles
-nav {
-  ul {
-    display: flex;
-    gap: var(--spacing-md);
-    padding: 0;
-  }
-
-  li {
-    list-style: none;
-  }
-}
-
 // Blockquote Styles
 blockquote {
   border-left: $border-accent-thick;
@@ -212,9 +185,10 @@ hr {
   }
 }
 
-.fr-definition-list a{
+.fr-definition-list a {
   color: var(--color-text-muted);
   margin-left: var(--spacing-xs);
+  text-decoration: none;
 
   &:hover {
     color: var(--color-accent);

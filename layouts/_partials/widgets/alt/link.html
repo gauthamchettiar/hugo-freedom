@@ -1,0 +1,17 @@
+{{- $class := .class | default "fr-link" -}}
+{{- $url := urls.Parse .url -}}
+{{- $title := .title -}}
+{{- $text := .text -}}
+
+{{- $isExternal := $url.IsAbs -}}
+
+<a  href="{{ $url | safeURL }}" 
+    class="{{ $class }}" 
+    {{- with $title }} title="{{ . }}"{{ end -}}
+    {{- if $isExternal }} rel="external" target="_blank"{{ end -}}
+>
+  {{- with $text }}{{ . }}{{ end -}}
+  {{- if $isExternal -}}
+    <span class="external-link-indicator" aria-label="Opens in new tab">{{ partial "widgets/icon.html" (dict "name" "external-link") }}</span>
+  {{- end -}}
+</a>
