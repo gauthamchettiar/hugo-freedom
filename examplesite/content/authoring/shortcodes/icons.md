@@ -2,7 +2,7 @@
 title: "Shortcode: Icons"
 slug: "icons"
 date: 2026-02-28
-tags: ["shortcodes"]
+tags: ["intermediate"]
 ---
 Add inline SVG icons using `{{</* icon */>}}` shortcode. 
 

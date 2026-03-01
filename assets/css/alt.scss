@@ -45,16 +45,28 @@
 .fr-codeblock-lang {
     font-family: var(--font-family-code);
 
+    &:has(.fr-codeblock-title-hidden) {
+        position:relative;
+
+        .fr-codeblock-header {
+            border: none;
+            position: absolute;
+            top: 1px;
+            right: 1px;
+        }
+    }
+
     .fr-codeblock-header {
         padding: var(--spacing-2xs) var(--spacing-md);
         display: flex;
         justify-content: space-between;
-        border: $border-muted-thin;
+        border: $border-thin;
         margin-bottom: calc(-1*var(--border-thin));
+
     }
 
     .fr-codeblock-content {
-        border: $border-muted-thin;
+        border: $border-thin;
 
         .highlight pre {
             padding: var(--spacing-sm) var(--spacing-md);

@@ -2,7 +2,7 @@
 title: Images
 slug: "images"
 date: 2026-02-25
-tags: ["elements"]
+tags: ["basics"]
 ---
 
 A Simple Image element that is rendered using the HTML `<img>` tag.
@@ -10,13 +10,14 @@ A Simple Image element that is rendered using the HTML `<img>` tag.
 <!--more-->
 
 ## Features
-- Supports standard Markdown image syntax `![]()`.
+- Supports standard Markdown image syntax `![]()` and alternative  
+shortcode  `{{</* image */>}}`.
 - Supports aria-label and tooltip text using alt text.
 - Supports adding caption using the title attribute.
 - Supports image resizing using custom `width` and `height` attributes.
 - Supports loading images from page resource, site resource or remote URLs.
 - Allows adding custom CSS classes with the `class` attribute.
-- Offers preset variations (`variation`) for contextual theming.
+- Offers preset variations for contextual theming.
 - Handles dark/light mode visibility via `hideindark`/`hideinlight`.
 - Loads all images with `loading="lazy"` attribute for better performance.
 
@@ -24,17 +25,31 @@ A Simple Image element that is rendered using the HTML `<img>` tag.
 
 The basic syntax for images in Markdown follows this pattern:
 
-```
+{{< tabs group="markdown-shortcode">}}
+
+{{% tab title="Markdown Syntax" %}}
+```markdown {showtitle=false}
 ![alt text](image-path "optional caption")
+{width="300" height="200" class="my-image" variation="info" hideindark=true}
 ```
+{{% /tab %}}
 
-
-Provide additional attributes to images using curly braces under the image syntax:
-
+{{% tab title="Shortcode Syntax" %}}
+```markdown {showtitle=false}
+{{</* image 
+        src="image-path" 
+        alt="alt text" 
+        title="optional caption"
+        width="300" 
+        height="200" 
+        class="my-image" 
+        variation="info" 
+        hideindark=true 
+*/>}}
 ```
-![alt text](image-path "optional caption") 
-{width="600" height="400"}
-```
+{{% /tab %}}
+
+{{< /tabs >}}
 
 ### Parameters
 Alt Text
@@ -52,17 +67,11 @@ Image Path
     │   └── images
     │       └── chihiro043.jpg              <-- Site/Global Resource
     └── content
-        ├── _index.md
-        └── advanced
-            ├── _index.md
-            ├── elements
-            │   ├── _index.md
-            │   ├── image
-            │   │   ├── index.md            <-- This File
-            │   │   └── karigurashi002.jpg  <-- Page Resource 
-            │   └── image.md
-            └── shortcodes
-                └── _index.md
+        └── authoring
+            └── elements
+                └── images
+                    ├── index.md            <-- This File
+                    └── karigurashi002.jpg  <-- Page Resource
     ```
 
 Title/Caption
@@ -101,10 +110,24 @@ Extras
 ## Examples
 
 ### Example 1: Image from Page Resource
+You can provide a relative path to an image in the same directory as the markdown file. (e.g: `karigurashi002.jpg` refers to `content/authoring/elements/images/karigurashi002.jpg` in the project).
 
-```markdown
+{{< tabs group="markdown-shortcode" >}}
+{{% tab title="Markdown Syntax" %}}
+```markdown {showtitle=false}
 ![Studio Ghibli: karigurashi002.jpg](karigurashi002.jpg)
 ```
+{{% /tab %}}
+
+{{% tab title="Shortcode Syntax" %}}
+```markdown {showtitle=false}
+{{</* image 
+        src="karigurashi002.jpg" 
+        alt="Studio Ghibli: karigurashi002.jpg" 
+*/>}}
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 ![Studio Ghibli: karigurashi002.jpg](karigurashi002.jpg)
 
@@ -112,26 +135,66 @@ Extras
 
 Instead of providing a relative path to an image in the same directory as the markdown file, you can also provide an absolute path to an image from the `assets/` directory (e.g., `images/chihiro043.jpg` refers to `assets/images/chihiro043.jpg` in the project).
 
-```markdown
+{{< tabs group="markdown-shortcode" >}}
+{{% tab title="Markdown Syntax" %}}
+```markdown {showtitle=false}
 ![Studio Ghibli: chihiro043.jpg](images/chihiro043.jpg)
 ```
+{{% /tab %}}
+
+{{% tab title="Shortcode Syntax" %}}
+```markdown {showtitle=false}
+{{</* image 
+        src="images/chihiro043.jpg" 
+        alt="Studio Ghibli: chihiro043.jpg" 
+*/>}}
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 ![Studio Ghibli: Spirited Away](images/chihiro043.jpg)
 
 
 ### Example 3: Image from remote URL
 You can also load images from remote URLs ( remote url should start with either `http://` or `https://` ).
-```markdown
+
+{{< tabs group="markdown-shortcode" >}}
+{{% tab title="Markdown Syntax" %}}
+```markdown {showtitle=false}
 ![Studio Ghibli: ged003.jpg](https://www.ghibli.jp/gallery/ged003.jpg)
 ```
+{{% /tab %}}
+
+{{% tab title="Shortcode Syntax" %}}
+```markdown {showtitle=false}
+{{</* image 
+        src="https://www.ghibli.jp/gallery/ged003.jpg" 
+        alt="Studio Ghibli: ged003.jpg" 
+*/>}}
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 ![Studio Ghibli: ged003.jpg](https://www.ghibli.jp/gallery/ged003.jpg)
 
 ### Example 4: Image With Optional Caption
 
-```markdown
+{{< tabs group="markdown-shortcode" >}}
+{{% tab title="Markdown Syntax" %}}
+```markdown {showtitle=false}
 ![Studio Ghibli: karigurashi002.jpg](karigurashi002.jpg)
 ```
+{{% /tab %}}
+
+{{% tab title="Shortcode Syntax" %}}
+```markdown {showtitle=false}
+{{</* image 
+        src="karigurashi002.jpg" 
+        alt="Studio Ghibli: karigurashi002.jpg" 
+*/>}}
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 ![Studio Ghibli: karigurashi002.jpg](karigurashi002.jpg)
 
@@ -139,40 +202,101 @@ You can also load images from remote URLs ( remote url should start with either 
 
 ##### Left Aligned Caption (Default)
 
-```markdown
+{{< tabs group="markdown-shortcode" >}}
+{{% tab title="Markdown Syntax" %}}
+```markdown {showtitle=false}
 ![Studio Ghibli: karigurashi002.jpg](karigurashi002.jpg "Studio Ghibli: Arrietty (2010)")
 {captionalign="left"}
 ```
+{{% /tab %}}
+
+{{% tab title="Shortcode Syntax" %}}
+```markdown {showtitle=false}
+{{</* image 
+        src="karigurashi002.jpg" 
+        alt="Studio Ghibli: karigurashi002.jpg" 
+        title="Studio Ghibli: Arrietty (2010)" 
+        captionalign="left" 
+*/>}}
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 ![Studio Ghibli: karigurashi002.jpg](karigurashi002.jpg "Studio Ghibli: Arrietty (2010)")
 {captionalign="left"}
 
 ##### Center Aligned Caption
 
-```markdown
+{{< tabs group="markdown-shortcode" >}}
+{{% tab title="Markdown Syntax" %}}
+```markdown {showtitle=false}
 ![Studio Ghibli: karigurashi002.jpg](karigurashi002.jpg "Studio Ghibli: Arrietty (2010)")
 {captionalign="center"}
 ```
+{{% /tab %}}
+
+{{% tab title="Shortcode Syntax" %}}
+```markdown {showtitle=false}
+{{</* image 
+        src="karigurashi002.jpg" 
+        alt="Studio Ghibli: karigurashi002.jpg" 
+        title="Studio Ghibli: Arrietty (2010)" 
+        captionalign="center" 
+*/>}}
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 ![Studio Ghibli: karigurashi002.jpg](karigurashi002.jpg "Studio Ghibli: Arrietty (2010)")
 {captionalign="center"}
 
 ##### Right Aligned Caption
 
-```markdown
+{{< tabs group="markdown-shortcode" >}}
+{{% tab title="Markdown Syntax" %}}
+```markdown {showtitle=false}
 ![Studio Ghibli: karigurashi002.jpg](karigurashi002.jpg "Studio Ghibli: Arrietty (2010)")
 {captionalign="right"}
 ```
+{{% /tab %}}
+
+{{% tab title="Shortcode Syntax" %}}
+```markdown {showtitle=false}
+{{</* image 
+        src="karigurashi002.jpg" 
+        alt="Studio Ghibli: karigurashi002.jpg" 
+        title="Studio Ghibli: Arrietty (2010)" 
+        captionalign="right" 
+*/>}}
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 ![Studio Ghibli: karigurashi002.jpg](karigurashi002.jpg "Studio Ghibli: Arrietty (2010)")
 {captionalign="right"}
 
 ### Example 5: Image with Width and Height
 
-```markdown
+{{< tabs group="markdown-shortcode" >}}
+{{% tab title="Markdown Syntax" %}}
+```markdown {showtitle=false}
 ![Studio Ghibli: karigurashi002.jpg](karigurashi002.jpg "Studio Ghibli: Arrietty (2010)")
 {width="300" height="200"}
 ```
+{{% /tab %}}
+
+{{% tab title="Shortcode Syntax" %}}
+```markdown {showtitle=false}
+{{</* image 
+        src="karigurashi002.jpg" 
+        alt="Studio Ghibli: karigurashi002.jpg" 
+        title="Studio Ghibli: Arrietty (2010)" 
+        width="300" 
+        height="200" 
+*/>}}
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 ![Studio Ghibli: karigurashi002.jpg](karigurashi002.jpg "Studio Ghibli: Arrietty (2010)")
 {width="300" height="160"}
@@ -180,12 +304,33 @@ You can also load images from remote URLs ( remote url should start with either 
 ### Example 6: Dark Mode / Light Mode Specific Images
 Add `hideindark="true"` and `hideinlight="true"` attributes to hide images in dark mode and light mode respectively.
 
-```markdown
+{{< tabs group="markdown-shortcode" >}}
+{{% tab title="Markdown Syntax" %}}
+```markdown {showtitle=false}
 ![Studio Ghibli: chihiro043.jpg](images/chihiro043.jpg "Studio Ghibli: Spirited Away (2001)")
 {hideindark=true}
 ![Studio Ghibli: karigurashi002.jpg](karigurashi002.jpg "Studio Ghibli: Arrietty (2010)")
 {hideinlight=true}
 ```
+{{% /tab %}}
+
+{{% tab title="Shortcode Syntax" %}}
+```markdown {showtitle=false}
+{{</* image 
+        src="images/chihiro043.jpg" 
+        alt="Studio Ghibli: chihiro043.jpg" 
+        title="Studio Ghibli: Spirited Away (2001)" 
+        hideindark=true 
+*/>}}
+{{</* image 
+        src="karigurashi002.jpg" 
+        alt="Studio Ghibli: karigurashi002.jpg" 
+        title="Studio Ghibli: Arrietty (2010)" 
+        hideinlight=true 
+*/>}}
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 ![Studio Ghibli: Spirited Away](images/chihiro043.jpg "Studio Ghibli: Spirited Away (2001)")
 {hideindark=true}
@@ -197,10 +342,25 @@ Add `hideindark="true"` and `hideinlight="true"` attributes to hide images in da
 ### Example 7: Style Variations
 Add `variation` attribute to apply different style variations to images.
 
-```markdown
+{{< tabs group="markdown-shortcode" >}}
+{{% tab title="Markdown Syntax" %}}
+```markdown {showtitle=false}
 ![Studio Ghibli: chihiro043.jpg](images/chihiro043.jpg "Studio Ghibli: Spirited Away (2001)")
 {variation="accent"}
 ```
+{{% /tab %}}
+
+{{% tab title="Shortcode Syntax" %}}
+```markdown {showtitle=false}
+{{</* image 
+        src="images/chihiro043.jpg" 
+        alt="Studio Ghibli: chihiro043.jpg" 
+        title="Studio Ghibli: Spirited Away (2001)" 
+        variation="accent" 
+*/>}}
+```
+{{% /tab %}}
+{{< /tabs >}}
 
 ![Studio Ghibli: Spirited Away](images/chihiro043.jpg "Studio Ghibli: Spirited Away (2001)")
 {variation="accent"}

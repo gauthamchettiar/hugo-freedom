@@ -2,7 +2,7 @@
     "page" .Page
     "class" (.Get "class")
     "lang" (.Get "lang")
-    "inner" .Inner
+    "inner" ( trim .Inner "\n" )
     "options" (.Get "options")
     "caption" (.Get "caption")
     "captionalign" (.Get "captionalign")

@@ -1,9 +1,9 @@
 // SCSS Variables
+$border-thin: var(--border-thin) solid var(--color-border);
 $border-accent-thin: var(--border-thin) solid var(--color-accent);
-$border-muted-thin: var(--border-thin) solid var(--color-text-muted);
 
+$border-thick: var(--border-thick) solid var(--color-border);
 $border-accent-thick: var(--border-thick) solid var(--color-accent);
-$border-muted-thick: var(--border-thick) solid var(--color-text-muted);
 
 // SCSS Functions
 // Mix $color with --color-accent; $pct is the % of accent applied

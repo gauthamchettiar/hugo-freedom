@@ -9,5 +9,5 @@
     data-group="{{ $group }}" data-title="{{ $title }}" {{ $checked }}>
 <label for="{{ $id }}" class="{{ $class }}-label">{{ $title }}</label>
 <div class="{{ $class }}-panel">
-    {{ .Inner | markdownify }}
+    {{ .Inner }}
 </div>

@@ -52,3 +52,55 @@
 .fr-wdgt-meta-read-time {
   display: inline-block;
 }
+
+// Tabs Widget Styles
+.fr-wdgt-tabs {
+  display: flex;
+  flex-wrap: wrap;
+
+  .fr-wdgt-tab-label {
+    padding: var(--spacing-2xs) var(--spacing-md);
+    cursor: pointer;
+    color: var(--color-text-muted);
+    margin-bottom: -1px;
+    margin-right: -1px;
+    border: 1px solid var(--color-border);
+
+    &:hover {
+      color: var(--color-text);
+    }
+  }
+
+  .fr-wdgt-tab-input {
+    display: none;
+    
+    &:checked + .fr-wdgt-tab-label {
+      color: var(--color-accent);
+      border-bottom-color: var(--color-accent);
+      background-color: var(--color-surface);
+    }
+
+    &:checked + .fr-wdgt-tab-label + .fr-wdgt-tab-panel {
+      display: block;
+    }
+
+  }
+
+  .fr-wdgt-tab-panel {
+    display: none;
+    width: 100%;
+    order: 1;
+    border:1px solid var(--color-border);
+    padding: var(--spacing-md);
+
+    & > * {
+      margin-top:0;
+      margin-bottom: 0;
+    }
+
+    &:has(> .fr-codeblock-lang:only-child){
+      padding: 0;
+      border: none;
+    }
+  }
+}
