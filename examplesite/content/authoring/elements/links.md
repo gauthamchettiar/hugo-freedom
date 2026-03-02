@@ -55,10 +55,37 @@ Title / `title`
 
 `class` *(shortcode only)*
 : (optional) One or more CSS classes to apply to the `<a>` element (default: `fr-link`).
-: > **Note:** The `class` attribute is not available in markdown syntax due to a goldmark limitation — inline elements do not support attribute blocks `{...}`. Use the shortcode if you need custom classes.
+: > **Note:** The `class` attribute is not available in markdown syntax due to a goldmark limitation — inline elements do not support attribute blocks `{...}`. use shortcode if you need custom classes.
 
 ## Theming
 
+The link component uses the CSS custom property,
+- `--color-link` for its normal color, 
+- `--color-accent` for on hover and active states.
+
+```scss {title="assets/css/theme.scss"}
+{
+  :root {
+    // ...
+    --color-link: #0000ee;
+    --color-accent: #01827c;
+    
+    // ...
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      // ...
+      --color-link: #66aaff;
+      --color-accent: #00fff2;
+      // ...
+    }
+  }
+}
+
+```
+Refer to the [Theme Customization](/guide/theme-customization/)
+guide, for guidance on how to customize these properties for your site.
 
 ## Examples
 
