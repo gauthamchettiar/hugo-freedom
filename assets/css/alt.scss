@@ -23,7 +23,8 @@
 .fr-wdgt-menu a, 
 .fr-wdgt-list-simple a, 
 .fr-wdgt-terms a,
-.fr-wdgt-breadcrumb a {
+.fr-wdgt-breadcrumb a,
+.fr-blockquote a {
   color: var(--color-link);
   text-decoration: none;
   word-wrap: break-word;
@@ -47,9 +48,14 @@
         padding: var(--spacing-md);
         padding-bottom: var(--spacing-sm);
 
-        figcaption {
-            border: none;
-            color: inherit;
+    }
+
+    @each $name, $values in $variations {
+        &.fr-variation--#{$name} {
+            background-color: map-get($values, "base");
+            figcaption {
+                color: map-get($values, "text");
+            }
         }
     }
 }
@@ -98,6 +104,57 @@
 
         .highlight pre {
             padding: var(--spacing-sm) var(--spacing-md);
+        }
+    }
+}
+
+// Blockquote Styles
+.fr-blockquote {
+  border-left-width: var(--border-thick);
+  border-left-style: solid;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  margin: var(--spacing-md) 0;
+  font-style: italic;
+
+  .fr-blockquote-caption {
+    margin: var(--spacing-md) 0;
+  }
+
+  &:not(.fr-variant) {
+    background-color: var(--color-surface);
+    border-left-color: var(--color-accent);
+  }
+
+  @each $name, $values in $variations {
+    &.fr-variation--#{$name} {
+      background-color: make-surface(map-get($values, "base"));
+      border-left-color: map-get($values, "base");
+    }
+  }
+}
+
+.fr-blockquote-alert{
+    border: var(--border-thin) solid transparent;
+    margin: var(--spacing-md) 0;
+
+    .fr-blockquote-alert-header {
+        font-weight: bold;
+        border-bottom: var(--border-thin) solid currentColor;
+        padding: var(--spacing-xs) var(--spacing-md);
+
+        .fr-blockquote-alert-icon {
+            margin-right: var(--spacing-2xs);
+        }
+    }
+
+    .fr-blockquote-alert-content {
+        margin: var(--spacing-md) var(--spacing-md);
+    }
+
+    @each $name, $values in $variations {
+        &.fr-variation--#{$name} {
+            background-color: map-get($values, "base");
+            color: map-get($values, "text");
         }
     }
 }

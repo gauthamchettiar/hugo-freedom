@@ -47,13 +47,13 @@
     --page-width: 768px;
 
     /* Style Variations */
-    --color-surface-info: #0057b8;
-    --color-surface-note: #ffc107;
-    --color-surface-tip: #00bcd4;
-    --color-surface-warning: #ff9900;
-    --color-surface-important: #6200ea;
-    --color-surface-caution: #ff5500;
-    --color-surface-accent: var(--color-accent);
+    --color-base-info: #0057b8;
+    --color-base-note: #ffc107;
+    --color-base-tip: #32CD32;
+    --color-base-warning: #ff9900;
+    --color-base-important: #6200ea;
+    --color-base-caution: #ff5500;
+    --color-base-accent: var(--color-accent);
 
     --color-text-info: #fff;
     --color-text-note: #000;
@@ -62,14 +62,6 @@
     --color-text-important: #fff;
     --color-text-caution: #fff;
     --color-text-accent: var(--color-bg);
-
-    --color-border-info: color-mix(in srgb, var(--color-surface-info) 50%, #000 25%);
-    --color-border-note: color-mix(in srgb, var(--color-surface-note) 50%, #000 25%);
-    --color-border-tip: color-mix(in srgb, var(--color-surface-tip) 50%, #000 25%);
-    --color-border-warning: color-mix(in srgb, var(--color-surface-warning) 50%, #000 25%);
-    --color-border-important: color-mix(in srgb, var(--color-surface-important) 50%, #000 25%);
-    --color-border-caution: color-mix(in srgb, var(--color-surface-caution) 50%, #000 25%);
-    --color-border-accent: color-mix(in srgb, var(--color-surface-accent) 50%, #000 25%);
 }
 
 /* Dark mode overrides */
@@ -85,13 +77,12 @@
         --color-surface: color-mix(in srgb, var(--color-accent) 20%, transparent);
         
         /* Dark Mode: Style Variations */
-        --color-surface-info: #0057b8;
-        --color-surface-note: #ffc107;
-        --color-surface-tip: #00bcd4;
-        --color-surface-warning: #ff9900;
-        --color-surface-important: #6200ea;
-        --color-surface-caution: #ff5500;
-        --color-surface-accent: var(--color-accent);
+        --color-base-info: #0057b8;
+        --color-base-note: #ffc107;
+        --color-base-tip: #32CD32;
+        --color-base-warning: #ff9900;
+        --color-base-important: #6200ea;
+        --color-base-caution: #ff5500;
 
         --color-text-info: #fff;
         --color-text-note: #000;
@@ -99,52 +90,50 @@
         --color-text-warning: #000;
         --color-text-important: #fff;
         --color-text-caution: #fff;
-        --color-text-accent: var(--color-bg);
-
-        --color-border-info: color-mix(in srgb, var(--color-surface-info) 50%, #fff 25%);
-        --color-border-note: color-mix(in srgb, var(--color-surface-note) 50%, #fff 25%);
-        --color-border-tip: color-mix(in srgb, var(--color-surface-tip) 50%, #fff 25%);
-        --color-border-warning: color-mix(in srgb, var(--color-surface-warning) 50%, #fff 25%);
-        --color-border-important: color-mix(in srgb, var(--color-surface-important) 50%, #fff 25%);
-        --color-border-caution: color-mix(in srgb, var(--color-surface-caution) 50%, #fff 25%);
-        --color-border-accent: color-mix(in srgb, var(--color-surface-accent) 50%, #fff 25%);
     }
 }
 
+/*
 .fr-variation {
-    &-accent {
+    &--accent {
         color: var(--color-text-accent);
         background-color: var(--color-surface-accent);
-        border: var(--border-thin) solid var(--color-border-accent);
+        border-color: var(--color-border-accent);
     }
-    &-info {
+    &--info {
         color: var(--color-text-info);
         background-color: var(--color-surface-info);
-        border: var(--border-thin) solid var(--color-border-info);
+        border-color: var(--color-border-info);
     }
-    &-note {
+    &--note {
         color: var(--color-text-note);
         background-color: var(--color-surface-note);
-        border: var(--border-thin) solid var(--color-border-note);
+        border-color: var(--color-border-note);
     }
-    &-tip {
+    &--tip {
         color: var(--color-text-tip);
         background-color: var(--color-surface-tip);
-        border: var(--border-thin) solid var(--color-border-tip);
+        border-color: var(--color-border-tip);
     }
-    &-warning {
+    &--warning {
         color: var(--color-text-warning);
         background-color: var(--color-surface-warning);
-        border: var(--border-thin) solid var(--color-border-warning);
+        border-color: var(--color-border-warning);
     }
-    &-important {
+    &--important {
         color: var(--color-text-important);
         background-color: var(--color-surface-important);
-        border: var(--border-thin) solid var(--color-border-important);
+        border-color: var(--color-border-important);
     }
-    &-caution {
+    &--caution {
         color: var(--color-text-caution);
         background-color: var(--color-surface-caution);
-        border: var(--border-thin) solid var(--color-border-caution);
+        border-color: var(--color-border-caution);
+    }
+    &--inverted {
+        color: var(--color-bg);
+        background-color: var(--color-text);
+        border-color: var(--color-border);
     }
 }
+*/

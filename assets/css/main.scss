@@ -1,5 +1,3 @@
-@use 'tokens' as *;
-
 // Reset CSS
 * {
   margin: 0;
@@ -85,15 +83,6 @@ h6 {
 // Paragraph Styles
 p {
   margin: var(--spacing-md) 0;
-}
-
-// Blockquote Styles
-blockquote {
-  border-left: $border-accent-thick;
-  padding: var(--spacing-sm) var(--spacing-lg);
-  margin: var(--spacing-md) 0;
-  font-style: italic;
-  background-color: var(--color-surface);
 }
 
 // Inline Code Styles

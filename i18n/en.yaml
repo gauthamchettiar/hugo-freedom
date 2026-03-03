@@ -3,3 +3,13 @@ minute: "Min"
 minutes: "Mins"
 estimated: "Est."
 words: "Words"
+
+# variation titles
+info: "Info"
+note: "Note"
+tip: "Tip"
+warning: "Warning"
+important: "Important"
+caution: "Caution"
+accent: "Alert"
+inverted: "Alert"

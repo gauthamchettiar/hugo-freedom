@@ -22,7 +22,7 @@
     {{ $image = $image.Process $process }}
   {{ end }}
 
-  <figure class="{{ $class }} {{- if $hideindark }} fr-hide-in-dark {{- end -}} {{- if $hideinlight }} fr-hide-in-light {{- end -}} {{- if $variation }} fr-variant fr-variation-{{ $variation }} {{- end }}">
+  <figure class="{{ $class }} {{- if $hideindark }} fr-hide-in-dark {{- end -}} {{- if $hideinlight }} fr-hide-in-light {{- end -}} {{- if $variation }} fr-variant fr-variation--{{ $variation }} {{- end }}">
     <img src="{{ $image.Permalink }}" alt="{{ $alt }}" aria-label="{{ $alt }}" title="{{ $alt }}" loading="lazy">
     {{ with $caption }}
       <figcaption class="fr-text-align-{{ $captionalign }} {{- if $variation }} fr-variation-{{ $variation }} {{- end }}">{{ . }}</figcaption>

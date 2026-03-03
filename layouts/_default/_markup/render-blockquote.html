@@ -1,0 +1,14 @@
+{{ $text := .Text }}
+
+{{- partial "widgets/alt/blockquote.html" (dict
+    "page"       .Page
+    "class"     (.Attributes.class | default "")
+    "type"      (.Type | default "")
+    "variation" (.AlertType | default ( .Attributes.variation | default "" ))
+    "alertSign" (.AlertSign | default "")
+    "title"     (.AlertTitle | default "")
+    "text"      (.Text | default "")
+    "author"    (.Attributes.author | default "")
+    "cite"      (.Attributes.cite | default "")
+    "source"    (.Attributes.source | default "")
+) -}}

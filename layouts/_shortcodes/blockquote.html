@@ -1,0 +1,12 @@
+{{/* blockquote type="" variation="" author="" cite="" source="" class="" */}}
+{{ partial "widgets/alt/blockquote.html" (dict
+    "page"      .Page
+    "text"      .Inner
+    "type"      (.Get "type")
+    "title"     (.Get "title")  
+    "variation" (.Get "variation")
+    "author"    (.Get "author")
+    "cite"      (.Get "cite")
+    "source"    (.Get "source")
+    "class"     (.Get "class")
+) }}

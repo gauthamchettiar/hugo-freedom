@@ -2,9 +2,6 @@
 $border-thin: var(--border-thin) solid var(--color-border);
 $border-accent-thin: var(--border-thin) solid var(--color-accent);
 
-$border-thick: var(--border-thick) solid var(--color-border);
-$border-accent-thick: var(--border-thick) solid var(--color-accent);
-
 // SCSS Functions
 // Mix $color with --color-accent; $pct is the % of accent applied
 @function mix-color($color, $color-to-mix, $pct) {
@@ -14,11 +11,54 @@ $border-accent-thick: var(--border-thick) solid var(--color-accent);
 @function mix-color-accent($color, $pct) {
   @return mix-color($color, var(--color-accent), $pct);
 }
-// Mix $color with --color-bg; $pct is the % of bg applied
+
 @function mix-color-bg($color, $pct) {
   @return mix-color($color, var(--color-bg), $pct);
 }
-// Mix $color with --color-text; $pct is the % of text applied
+
 @function mix-color-text($color, $pct) {
   @return mix-color($color, var(--color-text), $pct);
 }
+
+@function make-muted($color) {
+  @return mix-color-bg($color, 30);
+}
+
+@function make-surface($color) {
+  @return mix-color-bg($color, 80);
+}
+
+$variations: (
+    "info" : (
+        "base": var(--color-base-info),
+        "text": var(--color-text-info),
+    ),
+    "note" : (
+        "base": var(--color-base-note),
+        "text": var(--color-text-note),
+    ),
+    "tip" : (
+        "base": var(--color-base-tip),
+        "text": var(--color-text-tip),
+    ),
+    "warning" : (
+        "base": var(--color-base-warning),
+        "text": var(--color-text-warning),
+    ),
+    "important" : (
+        "base": var(--color-base-important),
+        "text": var(--color-text-important),
+    ),
+    "caution" : (
+        "base": var(--color-base-caution),
+        "text": var(--color-text-caution),
+    ),
+    "accent" : (
+        "base": var(--color-accent),
+        "text": var(--color-bg),
+    ),
+    "inverted" : (
+        "base": var(--color-text),
+        "text": var(--color-bg),
+    )
+);
