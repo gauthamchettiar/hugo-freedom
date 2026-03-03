@@ -22,7 +22,8 @@
 .fr-link, 
 .fr-wdgt-menu a, 
 .fr-wdgt-list-simple a, 
-.fr-wdgt-terms a {
+.fr-wdgt-terms a,
+.fr-wdgt-breadcrumb a {
   color: var(--color-link);
   text-decoration: none;
   word-wrap: break-word;

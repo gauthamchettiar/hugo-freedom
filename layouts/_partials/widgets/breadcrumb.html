@@ -1,0 +1,19 @@
+{{ $page := .page }}
+{{ $class := .class | default "fr-wdgt-breadcrumb" }}
+{{ $showCurrentPage := .showCurrentPage | default true }}
+{{ $separator := .separator | default "›" }}
+
+<nav class="{{ $class }}" aria-label="breadcrumb">
+  <ul>
+    {{ range $page.Ancestors.Reverse }}
+      {{ if ne .Kind "home" }}
+        <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+        <li class="separator">{{ $separator }}</li>
+      {{ end }}
+    {{ end }}
+    {{ if $showCurrentPage }}
+      <li aria-current="page" class="current">{{ $page.LinkTitle }}</li>
+      <li class="separator">{{ $separator }}</li>
+    {{ end }}
+  </ul>
+</nav>

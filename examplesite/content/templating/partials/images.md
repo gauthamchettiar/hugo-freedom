@@ -1,5 +1,5 @@
 ---
-title: "Partial: Images"
+title: "Images"
 slug: images
 date: 2026-03-02
 tags: ["advanced"]

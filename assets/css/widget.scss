@@ -1,15 +1,13 @@
 // Widget Styles
 
 // Title Widget
-.fs-wdgt-title--main {
+.fr-wdgt-title {
+  margin: var(--spacing-xs) 0;
+
   a {
     color: var(--color-text);
     text-decoration: none;
   }
-}
-
-.fr-wdgt-page-title {
-  margin-bottom: var(--spacing-xs);
 }
 
 // Menu Widget
@@ -19,6 +17,7 @@
     display: flex;
     gap: var(--spacing-md);
     padding: 0;
+    margin: 0;
   }
 
   li {
@@ -26,16 +25,44 @@
   }
 }
 
-// Terms Widget
-.fr-wdgt-terms {
-  margin-top: var(--spacing-md);
-  margin-bottom: var(--spacing-lg);
+
+// breadcrumb Widget
+.fr-wdgt-breadcrumb {
+  ul {
+    display: flex;
+    gap: var(--spacing-sm);
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    list-style: none;
+
+    &.current {
+      color: var(--color-text-muted);
+    }
+    
+    &.separator {
+      color: var(--color-text-muted);
+    }
+  }
+
+  &.fr-wdgt-breadcrumb--term,
+  &.fr-wdgt-breadcrumb--taxonomy {
+    margin-bottom: var(--spacing-md);
+  }
 }
 
-.fr-wdgt-terms--term {
-  .active a {
-    color: var(--color-accent);
-    text-decoration: underline;
+// Terms Widget
+.fr-wdgt-terms {
+  margin-bottom: var(--spacing-md);
+
+  &.fr-wdgt-terms--term {
+    .active a {
+      color: var(--color-text-muted);
+      pointer-events: none;
+      cursor: default;
+    }
   }
 }
 

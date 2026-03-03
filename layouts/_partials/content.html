@@ -1,10 +1,10 @@
 {{ $page := .page }}
-{{ $class := .class | default "fr-content" }}
-
 {{ $content := $page.Content }}
+
+{{/*  wrappers  */}}
 {{ $content = partial "wrappers/checkbox.html" (dict "content" $content) }}
 {{ $content = partial "wrappers/definition-list.html" (dict "content" $content) }}
 
-<p class="{{ $class }}">
-    {{ $content | safeHTML }}
-</p>
+{{ with $content }}
+{{ $content | safeHTML }}
+{{ end }}

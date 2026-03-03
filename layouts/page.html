@@ -1,5 +1,6 @@
 {{ define "main" }}
-  {{ partial "widgets/title.html" (dict "page" . "class" "fr-wdgt-page-title" "linktitle" false) }}
+  {{ partial "widgets/breadcrumb.html" (dict "page" . "class" "fr-wdgt-breadcrumb fr-wdgt-breadcrumb--page") }}
+  {{ partial "widgets/title.html" (dict "page" . "class" "fr-wdgt-title fr-wdgt-title--page" "linktitle" false) }}
   <div class="fr-page-meta">
     {{ partial "widgets/meta/date.html" (dict "page" .) }} ┊ 
     {{ partial "widgets/meta/author.html" (dict "page" .) }} ┊ 

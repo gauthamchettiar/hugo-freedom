@@ -1,5 +1,5 @@
 ---
-title: "Shortcode: Tabs"
+title: "Tabs"
 slug: "tabs"
 date: 2026-03-01
 tags: ["intermediate"]
@@ -8,7 +8,7 @@ Display content in switchable tabbed panels using `{{</* tabs */>}}` and `{{</* 
 
 <!--more-->
 
-> This is the shortcode implementation of tabs. If you are looking for the partial version, check [Partial: Tabs](/templating/partials/tabs/) documentation.
+> This is the shortcode implementation of tabs. If you are looking for the partial version, check [Tabs](/templating/partials/tabs/) documentation.
 
 ## Features
 - Groups multiple content panels into a tabbed interface.

@@ -1,5 +1,5 @@
 ---
-title: "Partial: Tabs"
+title: "Tabs"
 slug: tabs
 date: 2026-03-01
 tags: ["advanced"]
@@ -10,7 +10,7 @@ Display content in switchable tabbed panels using `widgets/tabs.html` and `widge
 
 <!--more-->
 
-> This is the partial implementation of tabs. If you are looking for the shortcode version, check [Shortcode: Tabs](/authoring/shortcodes/tabs/) documentation.
+> This is the partial implementation of tabs. If you are looking for the shortcode version, check [Tabs](/authoring/shortcodes/tabs/) documentation.
 
 ## Features
 - Groups multiple content panels into a tabbed interface.

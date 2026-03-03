@@ -1,5 +1,5 @@
 ---
-title: "Partial: Icons"
+title: "Icons"
 slug: icons
 date: 2026-03-01
 tags: ["advanced"]
@@ -10,7 +10,7 @@ Add inline SVG icons using `widgets/icon.html` partial.
 
 <!--more-->
 
-> This is partial implementation of icons, if you are looking for the shortcode version, check [Shortcode: Icons](/authoring/shortcodes/icons/) documentation.
+> This is partial implementation of icons, if you are looking for the shortcode version, check [Icons](/authoring/shortcodes/icons/) documentation.
 
 ## Features
 - Adds Inline Font Awesome SVGs.

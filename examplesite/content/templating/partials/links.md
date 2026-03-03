@@ -1,5 +1,5 @@
 ---
-title: "Partial: Links"
+title: "Links"
 slug: links
 date: 2026-03-01
 tags: ["advanced"]

@@ -1,5 +1,5 @@
 ---
-title: "Shortcode: Icons"
+title: "Icons"
 slug: "icons"
 date: 2026-02-28
 tags: ["intermediate"]
@@ -8,7 +8,7 @@ Add inline SVG icons using `{{</* icon */>}}` shortcode.
 
 <!--more-->
 
-> This is shortcode implementation of icons, if you are looking for the partial version, check [Partial: Icons](/templating/partials/icons/) documentation.
+> This is shortcode implementation of icons, if you are looking for the partial version, check [Icons](/templating/partials/icons/) documentation.
 
 ## Features
 - Adds Inline Font Awesome SVGs.
