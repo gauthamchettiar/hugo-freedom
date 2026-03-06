@@ -1,0 +1,33 @@
+{{/* table-cell align="" minwidth="" header="" */}}
+{{- $alignment := .Get "align" | default "" -}}
+{{- $minwidth := .Get "minwidth" | default "" -}}
+{{- $cellHeader := .Get "header" | default "" -}}
+{{- $parentHeader := .Parent.Get "header" | default false -}}
+{{- $isHeader := cond (ne $cellHeader "") $cellHeader $parentHeader -}}
+
+{{- $styles := slice -}}
+{{- with $alignment -}}
+    {{- $styles = $styles | append (printf "text-align: %s" .) -}}
+{{- end -}}
+{{- with $minwidth -}}
+    {{- $styles = $styles | append (printf "min-width: %s" .) -}}
+{{- end -}}
+{{- $style := delimit $styles "; " -}}
+
+{{- if $isHeader -}}
+<th
+    {{- with $style }}
+    {{- printf " style=%q" . | safeHTMLAttr }}
+    {{- end -}}
+>
+    {{- .Inner | .Page.RenderString -}}
+</th>
+{{- else -}}
+<td
+    {{- with $style }}
+    {{- printf " style=%q" . | safeHTMLAttr }}
+    {{- end -}}
+>
+    {{- .Inner | .Page.RenderString -}}
+</td>
+{{- end -}}

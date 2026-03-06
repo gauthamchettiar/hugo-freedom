@@ -1,0 +1,9 @@
+{{/* image src="path" alt="text" caption="..." class="" width="" height="" captionalign="left" variation="" hideindark=false hideinlight=false process="" */}}
+{{ partial "widgets/alt/heading.html" ( dict
+    "page" .Page
+    "class" (.Get "class")
+    "anchor" (.Get "anchor")
+    "text" (.Get "text")
+    "level" (.Get "level")
+    "anchorSymbol" (.Get "anchorSymbol")
+) }}

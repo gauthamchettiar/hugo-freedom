@@ -1,0 +1,109 @@
+{{ $variation := .variation | default "" }}
+{{ $class := .class | default "fr-table" }}
+{{ if $variation }}
+    {{ $class = printf "%s fr-variation--%s" $class $variation }}
+{{ end }}
+{{ $tableHeader := .tableHeader }}
+{{ $tableBody := .tableBody }}
+{{ $tableAttributes := .tableAttributes | default dict }}
+{{ $caption := .caption }}
+{{ $captionAlign := .captionalign | default "left" }}
+{{ $minwidthStr := .minwidth | default "" }}
+{{ $colheadersStr := .colheaders | default "" }}
+{{ $rowheadersStr := .rowheaders | default "" }}
+
+{{/* Parse minwidth string: "1 60px 2 150px 5 150px" -> map of column indices to widths */}}
+{{ $minwidthMap := dict }}
+{{ if $minwidthStr }}
+    {{ $parts := split $minwidthStr " " }}
+    {{ $i := 0 }}
+    {{ range $parts }}
+        {{ if eq (mod $i 2) 0 }}
+            {{ $colNum := . }}
+            {{ $i = add $i 1 }}
+            {{ if lt $i (len $parts) }}
+                {{ $width := index $parts $i }}
+                {{ $minwidthMap = merge $minwidthMap (dict $colNum $width) }}
+            {{ end }}
+        {{ end }}
+        {{ $i = add $i 1 }}
+    {{ end }}
+{{ end }}
+
+{{/* Parse colheaders string: "1 2 3" -> map of column indices, "-1" means no column headers */}}
+{{ $colheadersMap := dict }}
+{{ if and $colheadersStr (ne $colheadersStr "-1") }}
+    {{ range split $colheadersStr " " }}
+        {{ if . }}
+            {{ $colheadersMap = merge $colheadersMap (dict . true) }}
+        {{ end }}
+    {{ end }}
+{{ end }}
+
+{{/* Parse rowheaders string: "1 2" -> map of row indices, "-1" means no row headers */}}
+{{ $rowheadersMap := dict }}
+{{ if and $rowheadersStr (ne $rowheadersStr "-1") }}
+    {{ range split $rowheadersStr " " }}
+        {{ if . }}
+            {{ $rowheadersMap = merge $rowheadersMap (dict . true) }}
+        {{ end }}
+    {{ end }}
+{{ else if not $rowheadersStr }}
+    {{/* Default: mark THead rows as header rows */}}
+    {{ range $i, $_ := $tableHeader }}
+        {{ $rowheadersMap = merge $rowheadersMap (dict (printf "%d" (add $i 1)) true) }}
+    {{ end }}
+{{ end }}
+
+<figure class="{{ $class }}">
+    <div class="fr-table-wrapper">
+    <table
+    {{- range $k, $v := $tableAttributes }}
+        {{- if $v }}
+        {{- printf " %s=%q" $k $v | safeHTMLAttr }}
+        {{- end }}
+    {{- end }}>
+    <tbody>
+        {{- $headerRowCount := len $tableHeader }}
+        {{- range $headerRowIndex, $headerRow := $tableHeader }}
+        {{- $rowNum := printf "%d" (add $headerRowIndex 1) }}
+        {{- $isHeaderRow := index $rowheadersMap $rowNum }}
+        <tr>
+            {{- range $colIndex, $cell := $headerRow }}
+            {{- partial "widgets/alt/table-cell.html" (dict
+                "text" $cell.Text
+                "alignment" $cell.Alignment
+                "colIndex" $colIndex
+                "isHeaderRow" $isHeaderRow
+                "colheadersMap" $colheadersMap
+                "minwidthMap" $minwidthMap
+            ) }}
+            {{- end }}
+        </tr>
+        {{- end }}
+        {{- range $rowIndex, $row := $tableBody }}
+        {{- $rowNum := printf "%d" (add (add $headerRowCount $rowIndex) 1) }}
+        {{- $isHeaderRow := index $rowheadersMap $rowNum }}
+        <tr>
+            {{- range $colIndex, $cell := $row }}
+            {{- partial "widgets/alt/table-cell.html" (dict
+                "text" $cell.Text
+                "alignment" $cell.Alignment
+                "colIndex" $colIndex
+                "isHeaderRow" $isHeaderRow
+                "colheadersMap" $colheadersMap
+                "minwidthMap" $minwidthMap
+            ) }}
+            {{- end }}
+        </tr>
+        {{- end }}
+    </tbody>
+    </table>
+    </div>
+
+    {{- with $caption -}}
+    <figcaption class="fr-text-align-{{ $captionAlign }}">
+        {{- . | safeHTML }}
+    </figcaption>
+    {{- end -}}
+</figure>

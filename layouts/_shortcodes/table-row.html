@@ -1,0 +1,11 @@
+{{/* table-row header=false */}}
+{{- $isHeader := .Get "header" | default false -}}
+
+{{- $context := .Page.Scratch.Get "table-tbody-open" -}}
+{{- if not $context -}}
+<tbody>
+{{- .Page.Scratch.Set "table-tbody-open" true -}}
+{{- end -}}
+    <tr>
+        {{- .Inner -}}
+    </tr>

@@ -1,0 +1,11 @@
+{{ $page := .page }}
+{{ $class := .class | default "fr-heading" }}
+{{ $anchor := .anchor }}
+{{ $text := .text }}
+{{ $level := .level }}
+{{ $anchorSymbol := .anchorSymbol | default "#" }}
+
+<h{{ $level }} id="{{ $anchor }}" class="{{ $class }}">
+  {{ $text | safeHTML -}}
+  <a class="heading-anchor" href="#{{ $anchor }}" aria-label="{{ i18n "aria_heading_anchor" }}">{{ $anchorSymbol }}</a>
+</h{{ $level }}>

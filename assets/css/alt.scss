@@ -1,5 +1,6 @@
 // Caption Styles
-.fr-image, .fr-codeblock-lang {
+.fr-image,
+.fr-codeblock-lang {
     margin: var(--spacing-md) 0;
 
     figcaption {
@@ -11,30 +12,32 @@
 }
 
 // Scrollbar Behaviour and Styles
-.fr-codeblock-plain, .fr-codeblock-lang pre  {
+.fr-codeblock-plain,
+.fr-codeblock-lang pre {
     scrollbar-width: thin;
-    scrollbar-color: var(--color-text-muted) color-mix(in srgb, var(--color-text-muted) 10%, transparent);
+    scrollbar-color: var(--color-text-muted)
+        color-mix(in srgb, var(--color-text-muted) 10%, transparent);
     overflow-x: auto;
     white-space: pre;
 }
 
 // Link Styles
-.fr-link, 
-.fr-wdgt-menu a, 
-.fr-wdgt-list-simple a, 
+.fr-link,
+.fr-wdgt-menu a,
+.fr-wdgt-list-simple a,
 .fr-wdgt-terms a,
 .fr-wdgt-breadcrumb a,
 .fr-blockquote a {
-  color: var(--color-link);
-  text-decoration: none;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  word-break: break-word;
+    color: var(--color-link);
+    text-decoration: none;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
 
-  &:hover {
-    color: var(--color-accent);
-    text-decoration: underline;
-  }
+    &:hover {
+        color: var(--color-accent);
+        text-decoration: underline;
+    }
 }
 
 // Image Styles
@@ -43,11 +46,10 @@
         max-width: 100%;
         height: auto;
     }
-    
+
     &.fr-variant {
         padding: var(--spacing-md);
         padding-bottom: var(--spacing-sm);
-
     }
 
     @each $name, $values in $variations {
@@ -70,7 +72,7 @@
     font-family: var(--font-family-code);
 
     &:has(.fr-codeblock-title-hidden) {
-        position:relative;
+        position: relative;
 
         .fr-codeblock-header {
             border: none;
@@ -85,8 +87,8 @@
         display: flex;
         justify-content: space-between;
         border: $border-thin;
-        margin-bottom: calc(-1*var(--border-thin));
-        
+        margin-bottom: calc(-1 * var(--border-thin));
+
         .fr-codeblock-copy-button {
             &:hover {
                 color: var(--color-accent);
@@ -110,30 +112,30 @@
 
 // Blockquote Styles
 .fr-blockquote {
-  border-left-width: var(--border-thick);
-  border-left-style: solid;
-  padding: var(--spacing-sm) var(--spacing-lg);
-  margin: var(--spacing-md) 0;
-  font-style: italic;
-
-  .fr-blockquote-caption {
+    border-left-width: var(--border-thick);
+    border-left-style: solid;
+    padding: var(--spacing-sm) var(--spacing-lg);
     margin: var(--spacing-md) 0;
-  }
+    font-style: italic;
 
-  &:not(.fr-variant) {
-    background-color: var(--color-surface);
-    border-left-color: var(--color-accent);
-  }
-
-  @each $name, $values in $variations {
-    &.fr-variation--#{$name} {
-      background-color: make-surface(map-get($values, "base"));
-      border-left-color: map-get($values, "base");
+    .fr-blockquote-caption {
+        margin: var(--spacing-md) 0;
     }
-  }
+
+    &:not(.fr-variant) {
+        background-color: var(--color-surface);
+        border-left-color: var(--color-accent);
+    }
+
+    @each $name, $values in $variations {
+        &.fr-variation--#{$name} {
+            background-color: make-surface(map-get($values, "base"));
+            border-left-color: map-get($values, "base");
+        }
+    }
 }
 
-.fr-blockquote-alert{
+.fr-blockquote-alert {
     border: var(--border-thin) solid transparent;
     margin: var(--spacing-md) 0;
 
@@ -157,6 +159,48 @@
             color: map-get($values, "text");
         }
     }
+}
+
+// Table Styles
+.fr-table {
+    margin: var(--spacing-md) 0;
+    max-width: 100%;
+
+    table {
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        border: $border-thin;
+        padding: var(--spacing-xs);
+    }
+
+    th {
+        background-color: var(--color-surface);
+        font-weight: 600;
+    }
+
+    figcaption {
+        color: var(--color-text-muted);
+        line-height: var(--line-height-compact);
+        font-size: var(--font-size-sm);
+        margin-top: var(--spacing-xs);
+    }
+
+    @each $name, $values in $variations {
+        &.fr-variation--#{$name} {
+            th {
+                background-color: make-surface(map-get($values, "base"));
+            }
+        }
+    }
+}
+
+// New wrapper to make only the table scroll horizontally
+.fr-table .fr-table-wrapper {
+    overflow-x: auto;
+    max-width: 100%;
 }
 
 // Common Utility Classes

@@ -1,0 +1,30 @@
+{{/* table caption="" captionalign="left" class="" variation="" */}}
+{{- $caption := .Get "caption" -}}
+{{- $captionalign := .Get "captionalign" | default "left" -}}
+{{- $variation := .Get "variation" | default "" -}}
+{{- $class := .Get "class" | default "fr-table" -}}
+{{- if $variation -}}
+    {{- $class = printf "%s fr-variation--%s" $class $variation -}}
+{{- end -}}
+
+{{- .Page.Scratch.Set "table-tbody-open" false -}}
+
+{{- $content := .Inner -}}
+
+<figure class="{{ $class }}">
+    <div class="fr-table-wrapper">
+    <table>
+    {{- $content -}}
+    {{- if .Page.Scratch.Get "table-tbody-open" -}}
+    </tbody>
+    {{- end -}}
+    </table>
+    </div>
+
+    {{- with $caption -}}
+    <figcaption class="fr-text-align-{{ $captionalign }}">
+        {{- . | safeHTML }}
+    </figcaption>
+    {{- end -}}
+</figure>
+{{- .Page.Scratch.Set "table-tbody-open" false -}}

@@ -1,0 +1,12 @@
+{{ partial "widgets/alt/table.html" (dict
+        "class" (.Attributes.class | default "")
+        "variation" (.Attributes.variation | default "")
+        "tableHeader" .THead
+        "tableBody" .TBody
+        "tableAttributes" (.Attributes.tableAttributes | default dict)
+        "caption" (.Attributes.caption | default "")
+        "captionalign" (.Attributes.captionalign | default "left")
+        "minwidth" (.Attributes.minwidth | default "")
+        "colheaders" (.Attributes.colheaders | default "")
+        "rowheaders" (.Attributes.rowheaders | default "")
+) }}
