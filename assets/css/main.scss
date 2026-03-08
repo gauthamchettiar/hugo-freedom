@@ -1,186 +1,198 @@
 // Reset CSS
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 
-  // Custom Scrollbar Styles
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-accent) var(--color-surface);
+    // Custom Scrollbar Styles
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-accent) var(--color-surface);
 }
 
 // Layout Styles
 header {
-  margin: var(--spacing-lg) 0;
+    margin: var(--spacing-lg) 0;
 }
 
 main {
-  margin: var(--spacing-lg) 0;
+    margin: var(--spacing-lg) 0;
 }
 
 footer {
-  margin: var(--spacing-lg) 0;
+    margin: var(--spacing-lg) 0;
 }
 
 body {
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  font-family: var(--font-family-body);
-  line-height: var(--line-height-regular);
-  padding: 0 var(--spacing-md);
-  max-width: var(--page-width);
-  margin: 0 auto;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-family-body);
+    line-height: var(--line-height-regular);
+    padding: 0 var(--spacing-md);
+    max-width: var(--page-width);
+    margin: 0 auto;
 }
 
 // Heading Styles
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-family-heading);
-  line-height: var(--line-height-compact);
-  margin-bottom: var(--spacing-md);
-  margin-top: var(--spacing-lg);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-family-heading);
+    line-height: var(--line-height-compact);
+    margin-bottom: var(--spacing-md);
+    margin-top: var(--spacing-lg);
 }
 
-:is(h1,h2,h3,h4,h5,h6) + :is(h1,h2,h3,h4,h5,h6) {
-  margin-top: var(--spacing-sm);
+:is(h1, h2, h3, h4, h5, h6) + :is(h1, h2, h3, h4, h5, h6) {
+    margin-top: var(--spacing-sm);
 }
 
 h1 {
-  font-size: var(--font-size-4xl);
-  font-weight: 700;
-  color: var(--color-text);
+    font-size: var(--font-size-4xl);
+    font-weight: 700;
+    color: var(--color-text);
 }
 
 h2 {
-  font-size: var(--font-size-3xl);
-  font-weight: 700;
-  color: mix-color-accent(var(--color-text), 10);
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    color: mix-color-accent(var(--color-text), 10);
 }
 
 h3 {
-  font-size: var(--font-size-2xl);
-  font-weight: 600;
-  color: mix-color-accent(var(--color-text), 15);
+    font-size: var(--font-size-2xl);
+    font-weight: 600;
+    color: mix-color-accent(var(--color-text), 15);
 }
 
 h4 {
-  font-size: var(--font-size-xl);
-  font-weight: 600;
-  color: mix-color-accent(var(--color-text), 25);
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: mix-color-accent(var(--color-text), 25);
 }
 
 h5 {
-  font-size: var(--font-size-lg);
-  font-weight: 600;
-  color: mix-color-accent(var(--color-text), 30);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: mix-color-accent(var(--color-text), 30);
 }
 
 h6 {
-  font-size: var(--font-size-md);
-  font-weight: 600;
-  color: mix-color-accent(var(--color-text), 40);
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    color: mix-color-accent(var(--color-text), 40);
 }
 
 // Paragraph Styles
 p {
-  margin: var(--spacing-md) 0;
+    margin: var(--spacing-md) 0;
 }
 
 // Inline Code Styles
 code {
-  font-family: var(--font-family-code);
+    font-family: var(--font-family-code);
+    text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
 
-  &:not(pre code) {
-    padding: var(--spacing-2xs);
-  }
+    /* Styles applied only to inline code (not pre > code) */
+    &:not(pre code) {
+        padding: var(--spacing-2xs);
+
+        /* Allow long inline code/text to break to the next line */
+        white-space: normal;
+        overflow-wrap: anywhere; /* preferred modern property */
+        word-break: break-word; /* fallback for some browsers */
+    }
 }
-
-
 
 // Other Text Formatting Styles
 mark {
-  background-color: var(--color-accent);
-  color: var(--color-bg);
-  padding: var(--spacing-2xs) var(--spacing-2xs);
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+    padding: var(--spacing-2xs) var(--spacing-2xs);
 }
 
 // List Styles
-ul, ol {
-  padding-left: var(--spacing-lg);
-  margin: var(--spacing-md) 0;
+ul,
+ol {
+    padding-left: var(--spacing-lg);
+    margin: var(--spacing-md) 0;
 }
-
 
 // Checkbox List Styles
 ul:has(.fr-checkbox) {
-  list-style: none;
-  padding-left: var(--spacing-md);
+    list-style: none;
+    padding-left: var(--spacing-md);
 }
 
 .fr-checkbox {
-  accent-color: var(--color-accent);
+    accent-color: var(--color-accent);
 }
-
 
 // Definition List Styles
 dl {
-  margin: var(--spacing-sm) 0;
+    margin: var(--spacing-sm) 0;
 }
 
 dt {
-  font-weight: 600;
-  margin-top: var(--spacing-sm);
+    font-weight: 600;
+    margin-top: var(--spacing-sm);
 }
 
 dd {
-  margin-left: var(--spacing-lg);
+    margin-left: var(--spacing-lg);
 }
 
 // Horizontal Rule Styles
 hr {
-  border: $border-accent-thin;
-  margin: var(--spacing-lg) 0;
+    border: $border-accent-thin;
+    margin: var(--spacing-lg) 0;
 }
 
 // Custom Text Selection Highlight
 ::selection {
-  background-color: var(--color-surface);
+    background-color: var(--color-surface);
 }
 
 // Special Class Overrides
 .fr-page-meta {
-  color: var(--color-text-muted);
+    color: var(--color-text-muted);
 }
 
 .footnotes {
-  border-top: $border-accent-thin;
-  border-bottom: $border-accent-thin;
-  margin: var(--spacing-lg) 0;
+    border-top: $border-accent-thin;
+    border-bottom: $border-accent-thin;
+    margin: var(--spacing-lg) 0;
 
-  hr {
-    display: none;
-  }
+    hr {
+        display: none;
+    }
 }
 
 .fr-definition-list a,
 .fr-heading a {
-  color: var(--color-text-muted);
-  margin-left: var(--spacing-xs);
-  text-decoration: none;
+    color: var(--color-text-muted);
+    margin-left: var(--spacing-xs);
+    text-decoration: none;
 
-  &:hover {
-    color: var(--color-accent);
-  }
+    &:hover {
+        color: var(--color-accent);
+    }
 }
 
 // Dark Mode / Light Mode Specific Elements
 .fr-hide-in-light {
-  @media (prefers-color-scheme: light) {
-    display: none;
-  }
+    @media (prefers-color-scheme: light) {
+        display: none;
+    }
 }
 
 .fr-hide-in-dark {
-  @media (prefers-color-scheme: dark) {
-    display: none;
-  }
+    @media (prefers-color-scheme: dark) {
+        display: none;
+    }
 }
