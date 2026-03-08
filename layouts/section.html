@@ -1,5 +1,6 @@
 {{ define "main" }}
+  {{ $listType := .Params.listType | default "simple" }}
   {{ partial "widgets/breadcrumb.html" (dict "page" . "class" "fr-wdgt-breadcrumb fr-wdgt-breadcrumb--section") }}
   {{ partial "content.html" (dict "page" .) }}
-  {{ partial "widgets/list/simple.html" (dict "Pages" .Pages) }}
+  {{ partial (printf "widgets/list/%s.html" $listType) (dict "pages" .Pages) }}
 {{ end }}

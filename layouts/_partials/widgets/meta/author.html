@@ -1,7 +1,8 @@
 {{ $page := .page }}
 {{ $class := .class | default "fr-wdgt-meta-author" }}
+{{ $showIcon := .showIcon | default true }}
 
 <span class="{{ $class }}">
-  {{ partial "widgets/icon.html" (dict "name" "user" "style" "solid") }}
+  {{ if $showIcon }} {{ partial "widgets/icon.html" (dict "name" "user" "style" "solid") }} {{ end }}
   <span>{{ $page.Params.author | default site.Params.author }}</span>
 </span>

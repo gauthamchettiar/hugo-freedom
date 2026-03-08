@@ -1,0 +1,32 @@
+{{ $pages := .pages }}
+{{ $class := .class | default "fr-wdgt-list-card" }}
+
+<ul class="{{ $class }}">
+    {{ range $p := $pages }}
+        <li>
+            <a href="{{ $p.RelPermalink }}">
+                <article aria-labelledby="fr-wdgt-card-title-{{ $p.RelPermalink | urlize }}">
+                    {{ with $p.Params.coverImage }}
+                        {{ partial "widgets/alt/image/html" (dict "page" $p "src" $p.Params.coverImage "alt" $p.Title "class" "fr-wdgt-list-card-image") }}
+                        <figure >
+                        <img src="{{ . | relURL }}" alt="{{ $p.Title }}" loading="lazy">
+                        </figure>
+                    {{ end }}
+
+                    <header >
+                        <h2>
+                        {{ if $p.LinkTitle }}{{ $p.LinkTitle }}{{ else }}{{ $p.Title }}{{ end }}
+                        </h2>
+                        {{ partial "widgets/meta/date.html" (dict "page" $p "showIcon" false) }}
+                    </header>
+
+                    {{ with $p.Summary }}
+                    <p>
+                        {{ . | plainify }}
+                    </p>
+                    {{ end }}
+                </article>
+            </a>
+        </li>
+    {{ end }}
+</ul>

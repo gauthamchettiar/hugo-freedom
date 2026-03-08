@@ -3,35 +3,36 @@
     --color-bg: #fcfcfc;
     --color-border: #222222;
     --color-text: #222222;
-    --color-text-muted: color-mix(in srgb, var(--color-text) 70%, transparent);;
+    --color-text-muted: color-mix(in srgb, var(--color-text) 70%, transparent);
     --color-link: #0000ee;
     --color-accent: #01827c;
     --color-surface: color-mix(in srgb, var(--color-accent) 20%, transparent);
 
     /* Typography */
-    --font-family-body: 'Verdana', 'Arial';
-    --font-family-heading: 'Verdana', 'Arial';
-    --font-family-code: 'Menlo', 'Consolas', 'Monospace';
+    --font-family-body: "Verdana", "Arial";
+    --font-family-heading: "Verdana", "Arial";
+    --font-family-code: "Menlo", "Consolas", "Monospace";
 
     /* Font sizes */
-    --font-size-2xs: 0.625rem;  
-    --font-size-xs: 0.75rem;    
-    --font-size-sm: 0.875rem;   
-    --font-size-md: 1rem;       
-    --font-size-lg: 1.125rem;   
-    --font-size-xl: 1.25rem;    
-    --font-size-2xl: 1.5rem;    
+    --font-size-2xs: 0.625rem;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
     --font-size-3xl: 1.875rem;
     --font-size-4xl: 2.25rem;
 
     /* Border Sizing */
-    --border-thin : 1px;
+    --border-thin: 1px;
     --border-thick: 4px;
 
     /* Line heights */
+    --line-height-tight: 1;
     --line-height-compact: 1.2;
     --line-height-regular: 1.6;
-    --line-height-relaxed: 2.0;
+    --line-height-relaxed: 2;
 
     /* Spacing scale */
     --spacing-2xs: 0.125rem;
@@ -49,7 +50,7 @@
     /* Style Variations */
     --color-base-info: #0057b8;
     --color-base-note: #ffc107;
-    --color-base-tip: #32CD32;
+    --color-base-tip: #32cd32;
     --color-base-warning: #ff9900;
     --color-base-important: #6200ea;
     --color-base-caution: #ff5500;
@@ -71,15 +72,23 @@
         --color-bg: #001f2c;
         --color-border: #ffffff;
         --color-text: #ffffff;
-        --color-text-muted: color-mix(in srgb, var(--color-text) 60%, transparent);
+        --color-text-muted: color-mix(
+            in srgb,
+            var(--color-text) 60%,
+            transparent
+        );
         --color-link: #66aaff;
         --color-accent: #00fff2;
-        --color-surface: color-mix(in srgb, var(--color-accent) 20%, transparent);
-        
+        --color-surface: color-mix(
+            in srgb,
+            var(--color-accent) 20%,
+            transparent
+        );
+
         /* Dark Mode: Style Variations */
         --color-base-info: #0057b8;
         --color-base-note: #ffc107;
-        --color-base-tip: #32CD32;
+        --color-base-tip: #32cd32;
         --color-base-warning: #ff9900;
         --color-base-important: #6200ea;
         --color-base-caution: #ff5500;

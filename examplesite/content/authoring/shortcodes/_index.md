@@ -1,7 +1,11 @@
 ---
 title: Shortcodes
 slug: shortcodes
-date: 2026-02-28
 draft: false
+params:
+  listType: "card"
 ---
 
+Hugo shortcode — a reusable, lightweight template snippet invoked in content (using {{/*< ... >*/}} or `{{/*% ... %*/}}`) to inject dynamic or custom HTML/markup.
+
+<!--more-->

@@ -75,15 +75,14 @@ jobs:
         with:
           path: ${{ runner.temp }}/hugo_cache
           key: hugo-${{ github.run_id }}
-          restore-keys:
-            hugo-
+          restore-keys: hugo-
       - name: Build the site
         run: |
           hugo build \
             --source examplesite \
             --gc \
             --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/" \
+            --baseURL "${{ steps.pages.outputs.base_url }}/hugo-freedom/" \
             --cacheDir "${{ runner.temp }}/hugo_cache"
       - name: Cache save
         id: cache-save

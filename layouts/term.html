@@ -2,5 +2,5 @@
   {{ partial "widgets/breadcrumb.html" (dict "page" . "class" "fr-wdgt-breadcrumb fr-wdgt-breadcrumb--term" "showCurrentPage" false) }}
   {{ partial "content.html" (dict "page" .) }}
   {{ partial "terms.html" (dict "page" . "taxonomies" .Parent.Pages "prefix" (index (partial "stores/taxonomy-prefix-store.html") .Section )  "class" "fr-wdgt-terms fr-wdgt-terms--term") }}
-  {{ partial "widgets/list/simple.html" (dict "Pages" .Pages) }}
+  {{ partial "widgets/list/simple.html" (dict "pages" .Pages) }}
 {{ end }}
