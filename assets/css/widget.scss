@@ -137,6 +137,57 @@
     display: inline-block;
 }
 
+// Book List Widget Styles
+.fr-wdgt-list-book {
+    margin: 0;
+    padding: 0;
+
+    li {
+        list-style: none;
+    }
+
+    .fr-wdgt-list-book-row {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-sm);
+        /* bleed left/right to cancel out body padding so hover bg reaches the page edge */
+        margin-inline: calc(-1 * var(--spacing-md));
+        /* restore the same amount as padding so text stays aligned */
+        padding: calc(var(--spacing-xs) / 2) var(--spacing-md);
+        text-decoration: none;
+        -webkit-tap-highlight-color: transparent;
+
+        &:hover,
+        &:focus {
+            background-color: var(--color-surface);
+            outline: none;
+        }
+    }
+
+    .fr-wdgt-list-book-title {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: var(--color-text);
+        flex: 0 1 auto;
+        display: inline-block;
+    }
+
+    .fr-wdgt-list-book-leader {
+        flex: 1 1 auto;
+        border-bottom: 1px dotted var(--color-border);
+        height: 0;
+        margin: 0 var(--spacing-sm);
+    }
+
+    .fr-wdgt-list-book-date {
+        white-space: nowrap;
+        color: var(--color-text-muted);
+        font-size: var(--font-size-md);
+        flex: 0 0 auto;
+    }
+}
+
 // Tabs Widget Styles
 .fr-wdgt-tabs {
     display: flex;
