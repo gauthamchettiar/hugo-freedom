@@ -1,0 +1,16 @@
+{{- $title := .Get "title" | default "Details" -}}
+{{- $class := .Get "class" | default "fr-wdgt-expand" -}}
+{{- $initialState := .Get "initialState" | default "" -}}
+{{- $style := .Get "style" | default "" -}}
+{{- $iconName := .Get "iconName" | default "" -}}
+{{- $iconStyle := .Get "iconStyle" | default "" -}}
+
+{{ partial "widgets/expand.html" (dict
+    "title" $title
+    "content" .Inner
+    "class" $class
+    "initialState" (eq $initialState "open")
+    "style" $style
+    "iconName" $iconName
+    "iconStyle" $iconStyle
+) }}

@@ -1,0 +1,19 @@
+{{ $title := .title | default "Details" }}
+{{ $content := .content | default "" }}
+{{ $class := .class | default "fr-wdgt-expand" }}
+{{ $initialState := .initialState | default false }}
+{{ $iconName := .iconName | default "" }}
+{{ $iconStyle := .iconStyle | default "" }}
+{{ $style := .style | default "simple" }}
+
+<details class="{{ $class }} fr-wdgt-expand--{{ $style }}" {{ if $initialState }}open{{ end }}>
+  <summary class="fr-wdgt-expand-summary">
+    {{ if $iconName }}
+      {{ partial "widgets/icon.html" (dict "name" $iconName "style" $iconStyle "class" "fr-wdgt-expand-icon") }}
+    {{ end }}
+    <span class="fr-wdgt-expand-title">{{ $title }}</span>
+  </summary>
+  <div class="fr-wdgt-expand-content">
+    {{ $content | markdownify }}
+  </div>
+</details>

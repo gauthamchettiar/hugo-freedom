@@ -188,7 +188,76 @@
     }
 }
 
-// Tabs Widget Styles
+/* Expand / Details Widget Styles */
+.fr-wdgt-expand {
+    margin: var(--spacing-md) 0;
+    summary {
+        &::-webkit-details-marker {
+            display: none;
+        }
+    }
+
+    /* Keep summary simple for the default (simple) style.
+       The boxed variant will receive the flex layout and right-aligned marker. */
+    .fr-wdgt-expand-summary {
+        cursor: pointer;
+        list-style: none;
+
+        &::after {
+            content: " +";
+            margin-left: var(--spacing-sm);
+        }
+    }
+
+    &[open] .fr-wdgt-expand-summary::after {
+        content: " −";
+    }
+
+    .fr-wdgt-expand-content {
+        & > * {
+            margin-top: 0;
+        }
+    }
+}
+
+.fr-wdgt-expand--simple {
+    .fr-wdgt-expand-content {
+        margin-left: var(--spacing-md);
+    }
+}
+
+.fr-wdgt-expand--box {
+    border: 1px solid var(--color-border);
+
+    .fr-wdgt-expand-summary {
+        padding: var(--spacing-xs) var(--spacing-md);
+        border-bottom: 1px solid var(--color-border);
+        margin-bottom: -1px;
+        display: flex;
+        align-items: center;
+
+        i {
+            margin-right: var(--spacing-sm);
+        }
+
+        /* Keep icon + title left; push marker to right */
+        &::after {
+            content: " +";
+            margin-left: auto;
+            padding-left: var(--spacing-sm);
+        }
+    }
+
+    &[open] .fr-wdgt-expand-summary {
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .fr-wdgt-expand-content {
+        margin: var(--spacing-md);
+    }
+}
+
+/* Tabs Widget Styles */
 .fr-wdgt-tabs {
     display: flex;
     flex-wrap: wrap;
