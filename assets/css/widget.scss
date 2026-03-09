@@ -311,3 +311,35 @@
         }
     }
 }
+
+/* Spoiler Widget Styles */
+.fr-wdgt-spoiler {
+    display: inline;
+    background-color: var(--color-surface);
+    cursor: pointer;
+
+    &__toggle {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        border: 0;
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    &__text {
+        color: transparent;
+        transition: color 0.15s ease;
+    }
+
+    // :has() on the label is the reliable way to target __text
+    // when the sibling __toggle is checked, since SCSS can't
+    // interpolate & twice in the same selector rule.
+    &:has(.fr-wdgt-spoiler__toggle:checked) .fr-wdgt-spoiler__text {
+        color: var(--color-text);
+    }
+}
