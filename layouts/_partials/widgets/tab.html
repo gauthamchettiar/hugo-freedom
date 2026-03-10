@@ -5,9 +5,9 @@
 {{- $checked := "" -}}
 {{- if eq .Ordinal 0 }}{{ $checked = "checked" }}{{ end -}}
 
-<input type="radio" name="{{ $group }}-{{ .Parent.Ordinal }}" id="{{ $id }}" class="{{ $class }}-input"
+<input type="radio" name="{{ $group }}-{{ .Parent.Ordinal }}" id="{{ $id }}" class="{{ $class }}__input"
     data-group="{{ $group }}" data-title="{{ $title }}" {{ $checked }}>
-<label for="{{ $id }}" class="{{ $class }}-label">{{ $title }}</label>
-<div class="{{ $class }}-panel">
+<label for="{{ $id }}" class="{{ $class }}__label">{{ $title }}</label>
+<div class="{{ $class }}__panel">
     {{ .Inner }}
 </div>

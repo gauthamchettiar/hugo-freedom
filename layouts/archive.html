@@ -1,0 +1,14 @@
+{{ define "main" }}
+  {{ partial "widgets/breadcrumb.html" (dict "page" . "class" "fr-wdgt-breadcrumb fr-wdgt-breadcrumb--archive") }}
+  {{ partial "content.html" (dict "page" .) }}
+
+  {{ $pages := sort site.RegularPages "Date" "desc" }}
+
+  {{ range $pages.GroupByDate "2006" }}
+    <section class="fr-archive-year">
+      <h2 class="fr-archive-year__heading">{{ .Key }}</h2>
+      {{ partial "widgets/list/book.html" (dict "pages" .Pages) }}
+    </section>
+  {{ end }}
+
+{{ end }}

@@ -29,7 +29,7 @@
     }
 }
 
-// breadcrumb Widget
+// Breadcrumb Widget
 .fr-wdgt-breadcrumb {
     ul {
         display: flex;
@@ -150,7 +150,7 @@
         list-style: none;
     }
 
-    .fr-wdgt-list-book-row {
+    .fr-wdgt-list-book__row {
         display: flex;
         align-items: center;
         gap: var(--spacing-sm);
@@ -168,7 +168,7 @@
         }
     }
 
-    .fr-wdgt-list-book-title {
+    .fr-wdgt-list-book__title {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -177,14 +177,14 @@
         display: inline-block;
     }
 
-    .fr-wdgt-list-book-leader {
+    .fr-wdgt-list-book__leader {
         flex: 1 1 auto;
         border-bottom: 1px dotted var(--color-border);
         height: 0;
         margin: 0 var(--spacing-sm);
     }
 
-    .fr-wdgt-list-book-date {
+    .fr-wdgt-list-book__date {
         white-space: nowrap;
         color: var(--color-text-muted);
         font-size: var(--font-size-md);
@@ -195,6 +195,7 @@
 /* Expand / Details Widget Styles */
 .fr-wdgt-expand {
     margin: var(--spacing-md) 0;
+
     summary {
         &::-webkit-details-marker {
             display: none;
@@ -203,7 +204,7 @@
 
     /* Keep summary simple for the default (simple) style.
        The boxed variant will receive the flex layout and right-aligned marker. */
-    .fr-wdgt-expand-summary {
+    .fr-wdgt-expand__summary {
         cursor: pointer;
         list-style: none;
 
@@ -213,11 +214,11 @@
         }
     }
 
-    &[open] .fr-wdgt-expand-summary::after {
+    &[open] .fr-wdgt-expand__summary::after {
         content: " −";
     }
 
-    .fr-wdgt-expand-content {
+    .fr-wdgt-expand__content {
         & > * {
             margin-top: 0;
         }
@@ -225,7 +226,7 @@
 }
 
 .fr-wdgt-expand--simple {
-    .fr-wdgt-expand-content {
+    .fr-wdgt-expand__content {
         margin-left: var(--spacing-md);
     }
 }
@@ -233,7 +234,7 @@
 .fr-wdgt-expand--box {
     border: 1px solid var(--color-border);
 
-    .fr-wdgt-expand-summary {
+    .fr-wdgt-expand__summary {
         padding: var(--spacing-xs) var(--spacing-md);
         border-bottom: 1px solid var(--color-border);
         margin-bottom: -1px;
@@ -252,11 +253,11 @@
         }
     }
 
-    &[open] .fr-wdgt-expand-summary {
+    &[open] .fr-wdgt-expand__summary {
         margin-bottom: var(--spacing-xs);
     }
 
-    .fr-wdgt-expand-content {
+    .fr-wdgt-expand__content {
         margin: var(--spacing-md);
     }
 }
@@ -266,7 +267,7 @@
     display: flex;
     flex-wrap: wrap;
 
-    .fr-wdgt-tab-label {
+    .fr-wdgt-tab__label {
         padding: var(--spacing-2xs) var(--spacing-md);
         cursor: pointer;
         color: var(--color-text-muted);
@@ -279,21 +280,21 @@
         }
     }
 
-    .fr-wdgt-tab-input {
+    .fr-wdgt-tab__input {
         display: none;
 
-        &:checked + .fr-wdgt-tab-label {
+        &:checked + .fr-wdgt-tab__label {
             color: var(--color-accent);
             border-bottom-color: var(--color-accent);
             background-color: var(--color-surface);
         }
 
-        &:checked + .fr-wdgt-tab-label + .fr-wdgt-tab-panel {
+        &:checked + .fr-wdgt-tab__label + .fr-wdgt-tab__panel {
             display: block;
         }
     }
 
-    .fr-wdgt-tab-panel {
+    .fr-wdgt-tab__panel {
         display: none;
         width: 100%;
         order: 1;
@@ -305,7 +306,7 @@
             margin-bottom: 0;
         }
 
-        &:has(> .fr-codeblock-lang:only-child) {
+        &:has(> .fr-codeblock--lang:only-child) {
             padding: 0;
             border: none;
         }
@@ -336,10 +337,15 @@
         transition: color 0.15s ease;
     }
 
-    // :has() on the label is the reliable way to target __text
-    // when the sibling __toggle is checked, since SCSS can't
-    // interpolate & twice in the same selector rule.
     &:has(.fr-wdgt-spoiler__toggle:checked) .fr-wdgt-spoiler__text {
         color: var(--color-text);
+    }
+}
+
+/* Recents Widget Styles */
+.fr-wdgt-recents {
+    &__archive-link {
+        display: block;
+        margin-top: var(--spacing-sm);
     }
 }

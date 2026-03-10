@@ -8,5 +8,5 @@
 
 <span class="{{ $class }}">
   {{ if $showIcon }} {{ partial "widgets/icon.html" (dict "name" "clock" "style" "solid") }} {{ end }}
-  <span class="{{ $class }}--text">{{ i18n "estimated" }} {{ $minutes }} {{ $minsLabel }} ( {{ $words }} {{ i18n "words" }} )</span>
+  <span class="{{ $class }}__text">{{ i18n "estimated" }} {{ $minutes }} {{ $minsLabel }} ( {{ $words }} {{ i18n "words" }} )</span>
 </span>

@@ -10,24 +10,24 @@
 {{- $title := .title | default $lang -}}
 
 {{- if $lang -}}
-    <figure class="{{- $class -}}-lang">
+    <figure class="{{- $class -}}--lang">
         {{ if or $showtitle $showcopy }}
-            <div class="{{- $class -}}-header chroma">
-                <span class="{{- $class -}}-title {{ if not $showtitle -}} {{- $class -}}-title-hidden {{- end -}}">{{- if $showtitle -}}{{- $title -}}{{- end -}}</span>
+            <div class="{{- $class -}}__header chroma">
+                <span class="{{- $class -}}__title {{ if not $showtitle -}} {{- $class -}}__title--hidden {{- end -}}">{{- if $showtitle -}}{{- $title -}}{{- end -}}</span>
                 {{- if $showcopy -}}
-                    <span class="{{- $class -}}-copy-button" role="button" tabindex="0" data-code="{{- $inner | htmlEscape -}}">
+                    <span class="{{- $class -}}__copy-button" role="button" tabindex="0" data-code="{{- $inner | htmlEscape -}}">
                         {{- partial "widgets/icon.html" (dict "name" "copy" "style" "regular") -}}
                     </span>
                 {{- end -}}
             </div>
         {{ end -}}
-        <div class="{{- $class -}}-content">
+        <div class="{{- $class -}}__content">
             {{- highlight $inner $lang $options -}}
         </div>
         {{ if $caption }}
-            <figcaption class="{{- $class -}}-caption fr-caption-{{- $captionalign -}}">{{- $caption -}}</figcaption>
+            <figcaption class="{{- $class -}}__caption fr-text-align--{{- $captionalign -}}">{{- $caption -}}</figcaption>
         {{ end -}}
     </figure>
 {{- else -}}
-    <pre class="{{ $class }}-plain"><code>{{- $inner -}}</code></pre>
+    <pre class="{{ $class }}--plain"><code>{{- $inner -}}</code></pre>
 {{- end -}}

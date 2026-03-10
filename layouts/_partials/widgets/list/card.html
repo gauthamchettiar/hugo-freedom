@@ -7,7 +7,7 @@
             <a href="{{ $p.RelPermalink }}">
                 <article aria-labelledby="fr-wdgt-card-title-{{ $p.RelPermalink | urlize }}">
                     {{ with $p.Params.coverImage }}
-                        {{ partial "widgets/alt/image/html" (dict "page" $p "src" $p.Params.coverImage "alt" $p.Title "class" "fr-wdgt-list-card-image") }}
+                        {{ partial "widgets/alt/image/html" (dict "page" $p "src" $p.Params.coverImage "alt" $p.Title "class" "fr-wdgt-list-card__image") }}
                         <figure >
                         <img src="{{ . | relURL }}" alt="{{ $p.Title }}" loading="lazy">
                         </figure>

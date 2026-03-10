@@ -14,22 +14,22 @@
 {{ $iconStyle := (index (partial "stores/variation-icon-store.html" .) $variation).iconStyle }}
 
 {{ if eq $type "alert" }}
-<figure class="{{ $class }}-alert {{- if $variation }} fr-variant fr-variation--{{ $variation }} {{- end }}">
-  <div class="{{ $class }}-alert-header">
-      {{ partial "widgets/icon.html" (dict "name" $iconName "style" $iconStyle "class" (printf "%s-alert-icon" $class)) }}
-      <span class="{{ $class }}-alert-title">{{ if $title }}{{ $title }}{{ else }}{{ i18n $variation }}{{ end }}</span>
+<figure class="{{ $class }}--alert {{- if $variation }} fr-variant fr-variation--{{ $variation }} {{- end }}">
+  <div class="{{ $class }}__alert-header">
+      {{ partial "widgets/icon.html" (dict "name" $iconName "style" $iconStyle "class" (printf "%s__alert-icon" $class)) }}
+      <span class="{{ $class }}__alert-title">{{ if $title }}{{ $title }}{{ else }}{{ i18n $variation }}{{ end }}</span>
   </div>
-  <blockquote class="{{ $class }}-alert-content" {{ with $cite }}cite="{{ . }}"{{ end }}>
+  <blockquote class="{{ $class }}__alert-content" {{ with $cite }}cite="{{ . }}"{{ end }}>
       {{ $text }}
   </blockquote>
 </figure>
 {{ else }}
 <figure class="{{ $class }} {{- if $variation }} fr-variant fr-variation--{{ $variation }} {{- end }}">
-  <blockquote class="{{ $class }}-content" {{ with $cite }}cite="{{ . }}"{{ end }}>
+  <blockquote class="{{ $class }}__content" {{ with $cite }}cite="{{ . }}"{{ end }}>
       {{ $text }}
   </blockquote>
   {{ if or $author $source }}
-  <figcaption class="{{ $class }}-caption">
+  <figcaption class="{{ $class }}__caption">
     {{ with or $author $source }}- {{ end }}
     {{ with $author }}{{ . }}{{ end }}
     {{- with and $author $source }}, {{ end }}

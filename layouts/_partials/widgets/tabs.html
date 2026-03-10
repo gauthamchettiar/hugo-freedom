@@ -1,9 +1,8 @@
-
 {{- $group := .Get "group" | default (printf "tabs-%d" .Ordinal) -}}
 {{- .Scratch.Set "tabGroup" $group -}}
 {{- $class := .Get "class" | default "fr-wdgt-tabs" -}}
 
-<div class="{{ $class }}-wrapper">
+<div class="{{ $class }}__wrapper">
     <div class="{{ $class }}">
         {{- .Inner -}}
     </div>

@@ -12,6 +12,6 @@
 >
   {{- with $text }}{{ . }}{{ end -}}
   {{- if $isExternal -}}
-    <span class="external-link-indicator" aria-label="Opens in new tab">{{ partial "widgets/icon.html" (dict "name" "external-link") }}</span>
+    <span class="fr-link__external-indicator" aria-label="Opens in new tab">{{ partial "widgets/icon.html" (dict "name" "external-link") }}</span>
   {{- end -}}
 </a>

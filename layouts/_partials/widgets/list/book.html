@@ -11,10 +11,10 @@ Usage:
 
 Classes:
   - Root UL:            `fr-wdgt-list-book` (or the class you pass)
-  - Row anchor:         `fr-wdgt-list-book-row`
-  - Title span:         `fr-wdgt-list-book-title`
-  - Leader span:        `fr-wdgt-list-book-leader` (purely visual; aria-hidden)
-  - Date/time element:  `fr-wdgt-list-book-date`
+  - Row anchor:         `fr-wdgt-list-book__row`
+  - Title span:         `fr-wdgt-list-book__title`
+  - Leader span:        `fr-wdgt-list-book__leader` (purely visual; aria-hidden)
+  - Date/time element:  `fr-wdgt-list-book__date`
 */}}
 
 {{ $pages := .pages }}
@@ -25,15 +25,15 @@ Classes:
     {{ $dateMachine := $p.Date | time.Format "2006-01-02T15:04:05-07:00" }}
     {{ $dateHuman := $p.Date | time.Format "02 Jan 2006" }}
     <li>
-      <a href="{{ $p.RelPermalink }}" class="fr-wdgt-list-book-row" aria-labelledby="fr-wdgt-book-title-{{ $p.File.Path | urlize }}">
-        <span id="fr-wdgt-book-title-{{ $p.File.Path | urlize }}" class="fr-wdgt-list-book-title">
+      <a href="{{ $p.RelPermalink }}" class="{{ $class }}__row" aria-labelledby="{{ $class }}-title-{{ $p.File.Path | urlize }}">
+        <span id="{{ $class }}-title-{{ $p.File.Path | urlize }}" class="{{ $class }}__title">
           {{ if $p.LinkTitle }}{{ $p.LinkTitle }}{{ else }}{{ $p.Title }}{{ end }}
         </span>
 
         {{/* visual leader: dotted line spanning remaining space; aria-hidden because it's decorative */}}
-        <span class="fr-wdgt-list-book-leader" aria-hidden="true"></span>
+        <span class="{{ $class }}__leader" aria-hidden="true"></span>
 
-        <time class="fr-wdgt-list-book-date" datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+        <time class="{{ $class }}__date" datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
       </a>
     </li>
   {{ end }}

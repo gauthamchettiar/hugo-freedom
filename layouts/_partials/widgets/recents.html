@@ -1,0 +1,22 @@
+{{ $count               := .count               | default 5 }}
+{{ $style               := .style               | default "book" }}
+{{ $class               := .class               | default "fr-wdgt-recents" }}
+{{ $includeLinkToArchive := .includeLinkToArchive | default true }}
+{{ $archivePath         := .archivePath         | default "/archive" }}
+
+{{/* Explicitly sort by Date descending before slicing */}}
+{{ $pages := sort site.RegularPages "Date" "desc" | first $count }}
+
+{{/* Dispatch to the appropriate list sub-partial */}}
+{{ $validStyles := slice "book" "card" "simple" }}
+{{ if not (in $validStyles $style) }}
+  {{ warnf "widgets/recents: unknown style %q – falling back to \"book\". Valid values: book, card, simple." $style }}
+  {{ $style = "book" }}
+{{ end }}
+
+<div class="{{ $class }}">
+{{ partial (printf "widgets/list/%s.html" $style) (dict "pages" $pages) }}
+{{ if $includeLinkToArchive }}
+    {{ partial "widgets/alt/link.html" (dict "url" $archivePath "text" (i18n "recents_view_all") "class" (printf "fr-link %s__archive-link" $class)) }}
+{{ end }}
+</div>

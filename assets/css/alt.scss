@@ -1,6 +1,6 @@
 // Caption Styles
 .fr-image,
-.fr-codeblock-lang {
+.fr-codeblock--lang {
     margin: var(--spacing-md) 0;
 
     figcaption {
@@ -12,8 +12,8 @@
 }
 
 // Scrollbar Behaviour and Styles
-.fr-codeblock-plain,
-.fr-codeblock-lang pre {
+.fr-codeblock--plain,
+.fr-codeblock--lang pre {
     scrollbar-width: thin;
     scrollbar-color: var(--color-text-muted)
         color-mix(in srgb, var(--color-text-muted) 10%, transparent);
@@ -63,18 +63,18 @@
 }
 
 // Codeblock Styles
-.fr-codeblock-plain {
+.fr-codeblock--plain {
     font-family: var(--font-family-code);
     margin: var(--spacing-md) 0;
 }
 
-.fr-codeblock-lang {
+.fr-codeblock--lang {
     font-family: var(--font-family-code);
 
-    &:has(.fr-codeblock-title-hidden) {
+    &:has(.fr-codeblock__title--hidden) {
         position: relative;
 
-        .fr-codeblock-header {
+        .fr-codeblock__header {
             border: none;
             position: absolute;
             top: 1px;
@@ -82,14 +82,14 @@
         }
     }
 
-    .fr-codeblock-header {
+    .fr-codeblock__header {
         padding: var(--spacing-2xs) var(--spacing-md);
         display: flex;
         justify-content: space-between;
         border: $border-thin;
         margin-bottom: calc(-1 * var(--border-thin));
 
-        .fr-codeblock-copy-button {
+        .fr-codeblock__copy-button {
             &:hover {
                 color: var(--color-accent);
                 cursor: pointer;
@@ -101,7 +101,7 @@
         }
     }
 
-    .fr-codeblock-content {
+    .fr-codeblock__content {
         border: $border-thin;
 
         .highlight pre {
@@ -118,7 +118,7 @@
     margin: var(--spacing-md) 0;
     font-style: italic;
 
-    .fr-blockquote-caption {
+    .fr-blockquote__caption {
         margin: var(--spacing-md) 0;
     }
 
@@ -135,21 +135,21 @@
     }
 }
 
-.fr-blockquote-alert {
+.fr-blockquote--alert {
     border: var(--border-thin) solid transparent;
     margin: var(--spacing-md) 0;
 
-    .fr-blockquote-alert-header {
+    .fr-blockquote__alert-header {
         font-weight: bold;
         border-bottom: var(--border-thin) solid currentColor;
         padding: var(--spacing-xs) var(--spacing-md);
 
-        .fr-blockquote-alert-icon {
+        .fr-blockquote__alert-icon {
             margin-right: var(--spacing-2xs);
         }
     }
 
-    .fr-blockquote-alert-content {
+    .fr-blockquote__alert-content {
         margin: var(--spacing-md) var(--spacing-md);
     }
 
@@ -198,20 +198,20 @@
 }
 
 // New wrapper to make only the table scroll horizontally
-.fr-table .fr-table-wrapper {
+.fr-table .fr-table__wrapper {
     overflow-x: auto;
     max-width: 100%;
 }
 
 // Common Utility Classes
 .fr-text-align {
-    &-left {
+    &--left {
         text-align: left;
     }
-    &-center {
+    &--center {
         text-align: center;
     }
-    &-right {
+    &--right {
         text-align: right;
     }
 }

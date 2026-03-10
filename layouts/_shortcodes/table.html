@@ -12,7 +12,7 @@
 {{- $content := .Inner -}}
 
 <figure class="{{ $class }}">
-    <div class="fr-table-wrapper">
+    <div class="fr-table__wrapper">
     <table>
     {{- $content -}}
     {{- if .Page.Scratch.Get "table-tbody-open" -}}
@@ -22,7 +22,7 @@
     </div>
 
     {{- with $caption -}}
-    <figcaption class="fr-text-align-{{ $captionalign }}">
+    <figcaption class="fr-text-align--{{ $captionalign }}">
         {{- . | safeHTML }}
     </figcaption>
     {{- end -}}

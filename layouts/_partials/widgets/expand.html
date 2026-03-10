@@ -7,13 +7,13 @@
 {{ $style := .style | default "simple" }}
 
 <details class="{{ $class }} fr-wdgt-expand--{{ $style }}" {{ if $initialState }}open{{ end }}>
-  <summary class="fr-wdgt-expand-summary">
+  <summary class="{{ $class }}__summary">
     {{ if $iconName }}
-      {{ partial "widgets/icon.html" (dict "name" $iconName "style" $iconStyle "class" "fr-wdgt-expand-icon") }}
+      {{ partial "widgets/icon.html" (dict "name" $iconName "style" $iconStyle "class" (printf "%s__icon" $class)) }}
     {{ end }}
-    <span class="fr-wdgt-expand-title">{{ $title }}</span>
+    <span class="{{ $class }}__title">{{ $title }}</span>
   </summary>
-  <div class="fr-wdgt-expand-content">
+  <div class="{{ $class }}__content">
     {{ $content | markdownify }}
   </div>
 </details>
