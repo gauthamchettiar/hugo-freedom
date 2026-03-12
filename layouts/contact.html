@@ -1,0 +1,7 @@
+{{ define "main" }}
+  {{ partial "widgets/breadcrumb.html" (dict "page" . "class" "fr-wdgt-breadcrumb fr-wdgt-breadcrumb--page") }}
+
+  <div class="fr-contact">
+    {{ partial "content.html" (dict "page" .) }}
+  </div>
+{{ end }}
