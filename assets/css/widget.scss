@@ -82,6 +82,10 @@
         span {
             color: var(--color-text-muted);
         }
+
+        time {
+            font-family: var(--font-family-code);
+        }
     }
 }
 
@@ -189,6 +193,7 @@
         color: var(--color-text-muted);
         font-size: var(--font-size-md);
         flex: 0 0 auto;
+        font-family: var(--font-family-code);
     }
 }
 
@@ -347,5 +352,12 @@
     &__archive-link {
         display: block;
         margin-top: var(--spacing-sm);
+    }
+}
+
+/* Archive Widget Styles */
+.fr-archive-year {
+    & > .fr-archive-year__heading:first-child {
+        margin-top: var(--spacing-md);
     }
 }

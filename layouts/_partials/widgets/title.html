@@ -5,14 +5,14 @@
 
 {{- if $page -}}
     {{- if $linktitle -}}
-        <h1 class="{{ $class }}"><a href="{{ $page.RelPermalink }}">{{ $page.LinkTitle }}</a></h1>
+        <h1 class="{{ $class }}"><a href="{{ $page.RelPermalink }}">{{ $page.LinkTitle | markdownify }}</a></h1>
     {{- else -}}
-        <h1 class="{{ $class }}">{{ $page.Title }}</h1>
+        <h1 class="{{ $class }}">{{ $page.Title | markdownify  }}</h1>
     {{- end -}}
 {{- else -}}
     {{- if $linktitle -}}
-        <h1 class="{{ $class }}"><a href="{{ site.BaseURL }}">{{ site.Title }}</a></h1>
+        <h1 class="{{ $class }}"><a href="{{ site.BaseURL }}">{{ site.Title | markdownify  }}</a></h1>
     {{- else -}}
-        <h1 class="{{ $class }}">{{ site.Title }}</h1>
+        <h1 class="{{ $class }}">{{ site.Title | markdownify  }}</h1>
     {{- end -}}
 {{- end -}}

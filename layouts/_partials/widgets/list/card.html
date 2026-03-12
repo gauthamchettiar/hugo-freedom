@@ -15,7 +15,7 @@
 
                     <header >
                         <h2>
-                        {{ if $p.LinkTitle }}{{ $p.LinkTitle }}{{ else }}{{ $p.Title }}{{ end }}
+                        {{ if $p.LinkTitle }}{{ $p.LinkTitle | markdownify }}{{ else }}{{ $p.Title | markdownify }}{{ end }}
                         </h2>
                         {{ partial "widgets/meta/date.html" (dict "page" $p "showIcon" false) }}
                     </header>

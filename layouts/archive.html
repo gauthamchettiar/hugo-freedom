@@ -1,8 +1,19 @@
 {{ define "main" }}
+  {{ $sections := .Params.archiveSections | default slice }}
   {{ partial "widgets/breadcrumb.html" (dict "page" . "class" "fr-wdgt-breadcrumb fr-wdgt-breadcrumb--archive") }}
   {{ partial "content.html" (dict "page" .) }}
 
-  {{ $pages := sort site.RegularPages "Date" "desc" }}
+  {{ $allPages := site.RegularPages }}
+  {{ if gt (len $sections) 0 }}
+    {{ $filtered := slice }}
+    {{ range $allPages }}
+      {{ if in $sections .Section }}
+        {{ $filtered = $filtered | append . }}
+      {{ end }}
+    {{ end }}
+    {{ $allPages = $filtered }}
+  {{ end }}
+  {{ $pages := sort $allPages "Date" "desc" }}
 
   {{ range $pages.GroupByDate "2006" }}
     <section class="fr-archive-year">

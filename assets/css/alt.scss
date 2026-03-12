@@ -27,7 +27,9 @@
 .fr-wdgt-list-simple a,
 .fr-wdgt-terms a,
 .fr-wdgt-breadcrumb a,
-.fr-blockquote a {
+.fr-blockquote a,
+.footnotes a,
+.footnote-ref {
     color: var(--color-link);
     text-decoration: none;
     word-wrap: break-word;

@@ -12,7 +12,7 @@
         <li>
             <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
             <span> ›› </span>
-            <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+            <a href="{{ .RelPermalink }}">{{ if .LinkTitle }}{{ .LinkTitle | markdownify }}{{ else }}{{ .Title | markdownify }}{{ end }}</a>
         </li>
     </section>
   {{ end }}

@@ -3,9 +3,22 @@
 {{ $class               := .class               | default "fr-wdgt-recents" }}
 {{ $includeLinkToArchive := .includeLinkToArchive | default true }}
 {{ $archivePath         := .archivePath         | default "/archive" }}
+{{ $sections            := .sections            | default slice }}
+
+{{/* Filter by section if sections param is provided, otherwise use all regular pages */}}
+{{ $allPages := site.RegularPages }}
+{{ if gt (len $sections) 0 }}
+  {{ $filtered := slice }}
+  {{ range $allPages }}
+    {{ if in $sections .Section }}
+      {{ $filtered = $filtered | append . }}
+    {{ end }}
+  {{ end }}
+  {{ $allPages = $filtered }}
+{{ end }}
 
 {{/* Explicitly sort by Date descending before slicing */}}
-{{ $pages := sort site.RegularPages "Date" "desc" | first $count }}
+{{ $pages := sort $allPages "Date" "desc" | first $count }}
 
 {{/* Dispatch to the appropriate list sub-partial */}}
 {{ $validStyles := slice "book" "card" "simple" }}

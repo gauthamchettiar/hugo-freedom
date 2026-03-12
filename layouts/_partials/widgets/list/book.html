@@ -1,4 +1,4 @@
-{{/* 
+{{/*
 Book list widget
 
 Creates a semantic, accessible list that renders like a book index:
@@ -27,7 +27,7 @@ Classes:
     <li>
       <a href="{{ $p.RelPermalink }}" class="{{ $class }}__row" aria-labelledby="{{ $class }}-title-{{ $p.File.Path | urlize }}">
         <span id="{{ $class }}-title-{{ $p.File.Path | urlize }}" class="{{ $class }}__title">
-          {{ if $p.LinkTitle }}{{ $p.LinkTitle }}{{ else }}{{ $p.Title }}{{ end }}
+          {{ if $p.LinkTitle }}{{ $p.LinkTitle | markdownify }}{{ else }}{{ $p.Title | markdownify }}{{ end }}
         </span>
 
         {{/* visual leader: dotted line spanning remaining space; aria-hidden because it's decorative */}}
