@@ -163,6 +163,14 @@ hr {
     color: var(--color-text-muted);
 }
 
+.fr-page-header {
+    margin-bottom: var(--spacing-lg);
+}
+
+.fr-page-footer {
+    margin-top: var(--spacing-lg);
+}
+
 .footnotes {
     border-top: $border-accent-thin;
     border-bottom: $border-accent-thin;
@@ -194,6 +202,21 @@ hr {
 
 .fr-hide-in-dark {
     @media (prefers-color-scheme: dark) {
+        display: none;
+    }
+}
+
+// Responsive visibility utilities (used by dyn-book and similar dynamic widgets)
+// Mobile:          ≤ 640px
+// Tablet/Desktop:  > 640px
+.fr-hide-mobile {
+    @media (max-width: 640px) {
+        display: none;
+    }
+}
+
+.fr-hide-desktop {
+    @media (min-width: 641px) {
         display: none;
     }
 }

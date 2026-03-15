@@ -1,13 +1,21 @@
 {{ define "main" }}
-  {{ partial "widgets/breadcrumb.html" (dict "page" . "class" "fr-wdgt-breadcrumb fr-wdgt-breadcrumb--page") }}
-  {{ partial "widgets/title.html" (dict "page" . "class" "fr-wdgt-title fr-wdgt-title--page" "linktitle" false) }}
-  <div class="fr-page-meta">
-    {{ partial "widgets/meta/date.html" (dict "page" .) }} ┊ 
-    {{ partial "widgets/meta/author.html" (dict "page" .) }} ┊ 
-    {{ partial "widgets/meta/read-time.html" (dict "page" .) }}
-  </div>
+    {{ $showDate := .Page.Params.showDate | default .Site.Params.page.showDate | default true }}
+    {{ $showAuthor := .Page.Params.showAuthor | default .Site.Params.page.showAuthor | default true }}
+    {{ $showReadTime := .Page.Params.showReadTime | default .Site.Params.page.showReadTime | default true }}
+    <div class="fr-page-header">
+        {{ partial "widgets/breadcrumb.html" (dict "page" . "class" "fr-wdgt-breadcrumb fr-wdgt-breadcrumb--page" "showCurrentPage" false) }}
+        {{ partial "widgets/title.html" (dict "page" . "class" "fr-wdgt-title fr-wdgt-title--page" "linktitle" false) }}
+        <div class="fr-page-meta">
+            {{ if $showAuthor }}{{ partial "widgets/meta/author.html" (dict "page" .) }} <br class="fr-hide-desktop"> <span class="fr-hide-mobile"> ┊ </span> {{ end }}
+            {{ if $showDate }}{{ partial "widgets/meta/date.html" (dict "page" .) }} <br class="fr-hide-desktop"> <span class="fr-hide-mobile"> ┊ </span> {{ end }}
+            {{ if $showReadTime }}{{ partial "widgets/meta/read-time.html" (dict "page" .) }}{{ end }}
+        </div>
+    </div>
 
-  {{ partial "content.html" (dict "page" .) }}
+    {{ partial "content.html" (dict "page" .) }}
 
-  {{ partial "terms.html" (dict "page" . "taxonomies" (.GetTerms "tags") "prefix" (index (partial "stores/taxonomy-prefix-store.html") "tags")  "class" "fr-wdgt-terms fr-wdgt-terms--page") }}
+    <div class="fr-page-footer">
+        {{ partial "terms.html" (dict "page" . "taxonomies" (.GetTerms "tags") "prefix" (index (partial "stores/taxonomy-prefix-store.html") "tags")  "class" "fr-wdgt-terms fr-wdgt-terms--page") }}
+    </div>
+
 {{ end }}

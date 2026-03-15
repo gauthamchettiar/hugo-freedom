@@ -1,0 +1,26 @@
+{{/*
+Dynamic Book list widget
+
+Responsive wrapper around the book and simple list widgets:
+  - Tablet / Desktop  → renders widgets/list/book.html
+  - Mobile            → renders widgets/list/simple.html
+
+Visibility is controlled purely with CSS utility classes:
+  `fr-hide-mobile`   – display:none on mobile, visible otherwise
+  `fr-hide-desktop`  – display:none on tablet+, visible on mobile
+
+Usage:
+  {{ partial "widgets/list/dyn-book.html" (dict "pages" $pages) }}
+*/}}
+
+{{ $pages := .pages }}
+
+{{/* ── Tablet / Desktop: book layout ── */}}
+<div class="fr-hide-mobile">
+  {{ partial "widgets/list/book.html" (dict "pages" $pages) }}
+</div>
+
+{{/* ── Mobile: simple layout ── */}}
+<div class="fr-hide-desktop">
+  {{ partial "widgets/list/simple.html" (dict "pages" $pages) }}
+</div>

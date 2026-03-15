@@ -1,19 +1,19 @@
 // Caption Styles
 .fr-image,
-.fr-codeblock--lang {
+.fr-codeblock--lang,
+.fr-table {
     margin: var(--spacing-md) 0;
 
     figcaption {
         color: var(--color-text-muted);
         line-height: var(--line-height-compact);
         font-size: var(--font-size-sm);
-        margin-top: var(--spacing-xs);
+        margin-top: var(--spacing-sm);
     }
 }
 
 // Scrollbar Behaviour and Styles
-.fr-codeblock--plain,
-.fr-codeblock--lang pre {
+.fr-codeblock--plain {
     scrollbar-width: thin;
     scrollbar-color: var(--color-text-muted)
         color-mix(in srgb, var(--color-text-muted) 10%, transparent);
@@ -47,6 +47,19 @@
     img {
         max-width: 100%;
         height: auto;
+        display: block;
+    }
+
+    &.fr-image--bordered {
+        img {
+            border: $border-thin;
+        }
+
+        figcaption {
+            border: $border-thin;
+            margin-top: calc(-1 * var(--border-thin));
+            padding: var(--spacing-sm);
+        }
     }
 
     &.fr-variant {
@@ -105,9 +118,23 @@
 
     .fr-codeblock__content {
         border: $border-thin;
+        overflow-x: auto;
+        scrollbar-width: thin;
+        scrollbar-color: var(--color-text-muted)
+            color-mix(in srgb, var(--color-text-muted) 10%, transparent);
 
         .highlight pre {
             padding: var(--spacing-sm) var(--spacing-md);
+            white-space: pre;
+            overflow-x: visible;
+            min-width: max-content;
+        }
+
+        // When linenos are enabled Hugo wraps output in a table; prevent it
+        // from creating its own scroll context — the parent handles it.
+        .lntable {
+            overflow-x: visible;
+            min-width: max-content;
         }
     }
 }
@@ -138,12 +165,12 @@
 }
 
 .fr-blockquote--alert {
-    border: var(--border-thin) solid transparent;
+    border: var(--border-thin) solid var(--color-border);
     margin: var(--spacing-md) 0;
 
     .fr-blockquote__alert-header {
+        border-bottom: var(--border-thin) solid var(--color-border);
         font-weight: bold;
-        border-bottom: var(--border-thin) solid currentColor;
         padding: var(--spacing-xs) var(--spacing-md);
 
         .fr-blockquote__alert-icon {
@@ -157,6 +184,11 @@
 
     @each $name, $values in $variations {
         &.fr-variation--#{$name} {
+            background-color: make-surface(map-get($values, "base"));
+            /* color: map-get($values, "text"); */
+        }
+
+        &.fr-variation--#{$name} .fr-blockquote__alert-header {
             background-color: map-get($values, "base");
             color: map-get($values, "text");
         }
@@ -181,13 +213,6 @@
     th {
         background-color: var(--color-surface);
         font-weight: 600;
-    }
-
-    figcaption {
-        color: var(--color-text-muted);
-        line-height: var(--line-height-compact);
-        font-size: var(--font-size-sm);
-        margin-top: var(--spacing-xs);
     }
 
     @each $name, $values in $variations {

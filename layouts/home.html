@@ -1,11 +1,12 @@
 {{ define "main" }}
-  {{ $listType := .Params.recentsListType | default "book" }}
-  {{ $sections := .Params.recentsSections | default slice }}
+  {{ $listType := .Params.recentsListType  | default "dyn-book" }}
+  {{ $sections := .Params.recentsSections  | default slice }}
+  {{ $count    := .Params.recentsPostCount | default 7 }}
   {{ partial "content.html" (dict "page" .) }}
   <h2>{{ i18n "recent_posts" }}</h2>
 
   {{ partial "widgets/recents.html" (dict
-      "count"     10
+      "count"     $count
       "style"     $listType
       "sections"  $sections
   ) }}

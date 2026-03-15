@@ -18,7 +18,7 @@
   {{ range $pages.GroupByDate "2006" }}
     <section class="fr-archive-year">
       <h2 class="fr-archive-year__heading">{{ .Key }}</h2>
-      {{ partial "widgets/list/book.html" (dict "pages" .Pages) }}
+      {{ partial "widgets/list/dyn-book.html" (dict "pages" .Pages) }}
     </section>
   {{ end }}
 

@@ -103,7 +103,7 @@
 
     {{- with $caption -}}
     <figcaption class="fr-text-align--{{ $captionAlign }}">
-        {{- . | safeHTML }}
+        {{- . | markdownify }}
     </figcaption>
     {{- end -}}
 </figure>

@@ -21,7 +21,7 @@
 {{ $pages := sort $allPages "Date" "desc" | first $count }}
 
 {{/* Dispatch to the appropriate list sub-partial */}}
-{{ $validStyles := slice "book" "card" "simple" }}
+{{ $validStyles := slice "book" "dyn-book" "card" "simple" }}
 {{ if not (in $validStyles $style) }}
   {{ warnf "widgets/recents: unknown style %q – falling back to \"book\". Valid values: book, card, simple." $style }}
   {{ $style = "book" }}
@@ -29,7 +29,7 @@
 
 <div class="{{ $class }}">
 {{ partial (printf "widgets/list/%s.html" $style) (dict "pages" $pages) }}
-{{ if $includeLinkToArchive }}
+{{ if and $includeLinkToArchive (gt (len $allPages) $count) }}
     {{ partial "widgets/alt/link.html" (dict "url" $archivePath "text" (i18n "recents_view_all") "class" (printf "fr-link %s__archive-link" $class)) }}
 {{ end }}
 </div>

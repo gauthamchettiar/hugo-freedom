@@ -77,14 +77,22 @@
         list-style: none;
         display: flex;
         gap: var(--spacing-sm);
+        align-items: baseline;
 
         time,
         span {
             color: var(--color-text-muted);
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         time {
             font-family: var(--font-family-code);
+        }
+
+        a {
+            min-width: 0;
+            word-break: break-word;
         }
     }
 }
@@ -186,6 +194,12 @@
         border-bottom: 1px dotted var(--color-border);
         height: 0;
         margin: 0 var(--spacing-sm);
+    }
+
+    @media (max-width: 640px) {
+        .fr-wdgt-list-book__leader {
+            border-bottom: none;
+        }
     }
 
     .fr-wdgt-list-book__date {

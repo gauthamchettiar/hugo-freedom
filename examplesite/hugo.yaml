@@ -5,6 +5,10 @@ theme: hugo-freedom
 themesDir: ../../
 params:
   author: Gautham Chettiar
+  page:
+    showAuthor: false
+    showDate: true
+    showReadTime: true
 
 menus:
   main:

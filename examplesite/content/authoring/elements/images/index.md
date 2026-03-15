@@ -20,6 +20,7 @@ shortcode  `{{</* image */>}}`.
 - Offers preset variations for contextual theming.
 - Handles dark/light mode visibility via `hideindark`/`hideinlight`.
 - Loads all images with `loading="lazy"` attribute for better performance.
+- Supports adding a border around the image using the `border` attribute.
 
 ## Syntax
 
@@ -103,6 +104,9 @@ Extras
   
   captionalign
   : (optional) Control caption alignment (`left`, `center`, `right`).
+
+  border
+  : (optional) Set to `true` to add a thin border around the image.
 
 
 > Refer Hugo's excellent resource on [image processing](https://gohugo.io/content-management/image-processing/) for more details.
@@ -366,3 +370,29 @@ Add `variation` attribute to apply different style variations to images.
 {variation="accent"}
 
 > Other supported `variation` values are `info`, `note`, `tip`, `warning`, `important`, `caution`, `accent`, or `inverted`. 
+
+### Example 8: Image with Border
+Add `border=true` to draw a thin border around the image.
+
+{{< tabs group="markdown-shortcode" >}}
+{{% tab title="Markdown Syntax" %}}
+```markdown {showtitle=false}
+![Studio Ghibli: karigurashi002.jpg](karigurashi002.jpg "Studio Ghibli: Arrietty (2010)")
+{border=true}
+```
+{{% /tab %}}
+
+{{% tab title="Shortcode Syntax" %}}
+```markdown {showtitle=false}
+{{</* image 
+        src="karigurashi002.jpg" 
+        alt="Studio Ghibli: karigurashi002.jpg" 
+        title="Studio Ghibli: Arrietty (2010)" 
+        border=true 
+*/>}}
+```
+{{% /tab %}}
+{{< /tabs >}}
+
+![Studio Ghibli: karigurashi002.jpg](karigurashi002.jpg "Studio Ghibli: Arrietty (2010)")
+{border=true}
